@@ -5,6 +5,9 @@ __pycache__/
 .DS_Store
 */.DS_Store
 
+weights/
+projects/GLEE/clip_vit_base_patch32/
+
 # Distribution / packaging
 .Python
 build/

@@ -373,12 +373,15 @@ def register_all_openimage(root):
         )
 
 
-
+# _PREDEFINED_SPLITS_OBJECTS365V2 = {
+#      "objects365_v2_train": ("Objects365V2/images/", "Objects365V2/annotations/zhiyuan_objv2_train_new.json"),
+#      "objects365_v2_masktrain": ("Objects365V2/images/", "Objects365V2/annotations/objects365_v2_train_with_mask.json"),
+#     "objects365_v2_val": ("Objects365V2/images/", "Objects365V2/annotations/zhiyuan_objv2_val_new.json"),
+# }
 
 _PREDEFINED_SPLITS_OBJECTS365V2 = {
-     "objects365_v2_train": ("Objects365V2/images/", "Objects365V2/annotations/zhiyuan_objv2_train_new.json"),
-     "objects365_v2_masktrain": ("Objects365V2/images/", "Objects365V2/annotations/objects365_v2_train_with_mask.json"),
-    "objects365_v2_val": ("Objects365V2/images/", "Objects365V2/annotations/zhiyuan_objv2_val_new.json"),
+    "objects365_v2_train": ("/root/autodl-tmp/data/Objects365v2/val/images", "/root/autodl-tmp/data/Objects365v2/val/zhiyuan_objv2_val.json"),
+    "objects365_v2_val": ("/root/autodl-tmp/data/Objects365v2/val/images", "/root/autodl-tmp/data/Objects365v2/val/zhiyuan_objv2_val.json"),
 }
 
 

@@ -5,7 +5,7 @@ DATASETS:
   TRAIN: ("objects365_v2_train", "openimage_train",)  
   TEST: ("objects365_v2_val",)
 SOLVER:
-  IMS_PER_BATCH: 64
+  IMS_PER_BATCH: 16
   BASE_LR: 0.0001
   STEPS: (400000,  )
   MAX_ITER: 500000
@@ -20,5 +20,5 @@ DATALOADER:
   DATASET_BS: [2, 2]
   USE_RFS: [True, True]
   FILTER_EMPTY_ANNOTATIONS: True
-  NUM_WORKERS: 4
+  NUM_WORKERS: 0
 OUTPUT_DIR: ./exp/GLEE_Lite_CLIPfrozen_pretrain

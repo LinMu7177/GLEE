@@ -5,6 +5,8 @@
 Common data processing utilities that are used in a
 typical object detection data pipeline.
 """
+import os
+import pickle
 import logging
 import numpy as np
 from typing import List, Union
@@ -210,6 +212,15 @@ def check_image_size(dataset_dict, image):
     if "height" not in dataset_dict:
         dataset_dict["height"] = image.shape[0]
 
+def load_mask(edges_demo_path, image_shape):
+    if os.path.exists(edges_demo_path):
+        with open(edges_demo_path, 'rb') as f:
+            combined_edges = pickle.load(f)
+        rle = {'size': combined_edges['size'], 'counts': combined_edges['counts']}
+        mask = mask_util.decode(rle)
+        return mask
+    else:
+        return np.ones(image_shape[:2], dtype=np.uint8)
 
 def transform_proposals(dataset_dict, image_shape, transforms, *, proposal_topk, min_box_size=0):
     """
@@ -308,6 +319,20 @@ def transform_instance_annotations(
                 "Supported types are: polygons as list[list[float] or ndarray],"
                 " COCO-style RLE as a dict.".format(type(segm))
             )
+
+    # if "edges" in annotation:
+    #     # each instance contains 1 or more polygons
+    #     segm = annotation["edges"]
+    #     if isinstance(segm, list):
+    #         mask = transforms.apply_segmentation(segm)
+    #         assert tuple(mask.shape[:2]) == image_size
+    #         annotation["edges"] = mask
+    #     else:
+    #         raise ValueError(
+    #             "Cannot transform segmentation of type '{}'!"
+    #             "Supported types are: polygons as list[list[float] or ndarray],"
+    #             " COCO-style RLE as a dict.".format(type(segm))
+    #         )
 
     if "keypoints" in annotation:
         keypoints = transform_keypoint_annotations(

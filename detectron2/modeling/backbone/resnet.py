@@ -350,10 +350,15 @@ class BasicStem(CNNBlockBase):
             bias=False,
             norm=get_norm(norm, out_channels),
         )
+        self.conv1_alpha = Conv2d(in_channels=1, out_channels=out_channels, kernel_size=3, stride=2, padding=1, bias=False)
+
         weight_init.c2_msra_fill(self.conv1)
 
-    def forward(self, x):
-        x = self.conv1(x)
+    def forward(self, x, alpha=None):
+        if alpha is not None:
+            x = self.conv1(x) + self.conv1_alpha(alpha)
+        else:
+            x = self.conv1(x)
         x = F.relu_(x)
         x = F.max_pool2d(x, kernel_size=3, stride=2, padding=1)
         return x
@@ -432,7 +437,7 @@ class ResNet(Backbone):
             assert out_feature in children, "Available children: {}".format(", ".join(children))
         self.freeze(freeze_at)
 
-    def forward(self, x):
+    def forward(self, x, alpha=None):
         """
         Args:
             x: Tensor of shape (N,C,H,W). H, W must be a multiple of ``self.size_divisibility``.
@@ -442,7 +447,7 @@ class ResNet(Backbone):
         """
         assert x.dim() == 4, f"ResNet takes an input of shape (N, C, H, W). Got {x.shape} instead!"
         outputs = {}
-        x = self.stem(x)
+        x = self.stem(x, alpha)
         if "stem" in self._out_features:
             outputs["stem"] = x
         for name, stage in zip(self.stage_names, self.stages):

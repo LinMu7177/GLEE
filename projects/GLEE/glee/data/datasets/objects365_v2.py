@@ -378,8 +378,8 @@ def _get_builtin_metadata():
         "thing_classes": thing_classes}
 
 _PREDEFINED_SPLITS_OBJECTS365 = {
-    "objects365_v2_train": ("/root/autodl-tmp/data/Objects365v2/val/images", "/root/autodl-tmp/data/Objects365v2/val/zhiyuan_objv2_val.json"),
-    "objects365_v2_val": ("/root/autodl-tmp/data/Objects365v2/val/images", "/root/autodl-tmp/data/Objects365v2/zhiyuan_objv2_val.json"),
+    "objects365_v2_train": ("/data/shared/Objects365v2/val/images", "/data/shared/Objects365v2/val/zhiyuan_objv2_val.json"),
+    "objects365_v2_val": ("/data/shared/Objects365v2/val/images", "/data/shared/Objects365v2/zhiyuan_objv2_val.json"),
 }
 
 # for key, (image_root, json_file) in _PREDEFINED_SPLITS_OBJECTS365.items():

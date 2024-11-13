@@ -331,6 +331,12 @@ class GLEE(nn.Module):
 
         if self.training:
             images = self.preprocess_image(batched_inputs, task)
+            if "edge" in batched_inputs[0].keys():
+                edge = [x["edge"].to(self.device).float().unsqueeze(0) for x in batched_inputs]
+                edge = ImageList.from_tensors(edge, size_divisibility=self.size_divisibility)
+            else:
+                edge = None
+
             if task in self.video_task_list:
                 gt_instances = [x["instances"] for x in batched_inputs]
             else:
@@ -354,7 +360,7 @@ class GLEE(nn.Module):
                 losses.update({"track_loss":track_loss})
                 losses.update({"dist_loss":dist_loss})
             else:
-                (outputs, mask_dict), track_loss, dist_loss  = self.glee(images, prompt_list, task, targets, batch_name_list)
+                (outputs, mask_dict), track_loss, dist_loss  = self.glee(images, prompt_list, task, edge, targets, batch_name_list)
                 losses = self.criterion(outputs, targets, mask_dict, task)
                 losses.update({"track_loss":track_loss})
                 losses.update({"dist_loss":dist_loss})

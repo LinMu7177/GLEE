@@ -124,7 +124,7 @@ class GLEE_Model(nn.Module):
     def device(self):
         return self.pixel_mean.device
     
-    def forward(self, images, prompts, task, targets=None, batch_name_list=None, is_train = True, visual_prompt_type='scribble'):
+    def forward(self, images, prompts, task, edge=None, targets=None, batch_name_list=None, is_train = True, visual_prompt_type='scribble'):
         extra =  {}
         # dist_loss = None
         early_semantic = None 
@@ -220,14 +220,16 @@ class GLEE_Model(nn.Module):
                 # early_semantic = {"hidden":gather_all_classtoken.float(),"masks":gather_all_classtoken_mask} 
                 early_semantic = {"hidden":token_x.float(),"masks":tokens['attention_mask']>0} 
         
-
-        if isinstance(images,torch.Tensor):
-            features = self.backbone(images)
+        if edge != None:
+            if isinstance(images,torch.Tensor):
+                features = self.backbone(images, edge)
+            else:
+                features = self.backbone(images.tensor, edge.tensor)
         else:
-            features = self.backbone(images.tensor)
-
-
-
+            if isinstance(images,torch.Tensor):
+                features = self.backbone(images)
+            else:
+                features = self.backbone(images.tensor)
 
         if 'spatial' in prompts:
             ## setp 1,2,3

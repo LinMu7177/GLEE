@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 __all__ = ["load_coco_json", "load_sem_seg", "convert_to_coco_json", "register_coco_instances"]
 
 
-def load_coco_json(json_file, image_root, dataset_name=None, extra_annotation_keys=None, dataset_name_in_dict="coco"):
+def load_coco_json(json_file, image_root, edges_file=None, dataset_name=None, extra_annotation_keys=None, dataset_name_in_dict="coco"):
     """
     Load a json file with COCO's instances annotation format.
     Currently supports instance detection, instance segmentation,
@@ -91,8 +91,8 @@ def load_coco_json(json_file, image_root, dataset_name=None, extra_annotation_ke
             if "coco" not in dataset_name:
                 logger.warning(
                     """
-Category ids in annotations are not in [1, #categories]! We'll apply a mapping for you.
-"""
+                    Category ids in annotations are not in [1, #categories]! We'll apply a mapping for you.
+                    """
                 )
         id_map = {v: i for i, v in enumerate(cat_ids)}
         meta.thing_dataset_id_to_contiguous_id = id_map
@@ -229,6 +229,11 @@ Category ids in annotations are not in [1, #categories]! We'll apply a mapping f
             + "There might be issues in your dataset generation process.  Please "
             "check https://detectron2.readthedocs.io/en/latest/tutorials/datasets.html carefully"
         )
+    if edges_file:
+        for data in dataset_dicts:
+            id = data["image_id"]
+            edge_path = os.path.join(edges_file, str(id) + '_edges.pkl')
+            data["edge_path"] = edge_path
     return dataset_dicts
 
 
@@ -481,7 +486,7 @@ def convert_to_coco_json(dataset_name, output_file, allow_cached=True):
             shutil.move(tmp_file, output_file)
 
 
-def register_coco_instances(name, metadata, json_file, image_root, dataset_name_in_dict="coco", evaluator_type="coco"):
+def register_coco_instances(name, metadata, json_file, image_root, edge_file=None, dataset_name_in_dict="coco", evaluator_type="coco"):
     """
     Register a dataset in COCO's json annotation format for
     instance detection, instance segmentation and keypoint detection.
@@ -501,8 +506,10 @@ def register_coco_instances(name, metadata, json_file, image_root, dataset_name_
     assert isinstance(name, str), name
     assert isinstance(json_file, (str, os.PathLike)), json_file
     assert isinstance(image_root, (str, os.PathLike)), image_root
+    if edge_file:
+        assert isinstance(edge_file, (str, os.PathLike)), edge_file
     # 1. register a function which returns dicts
-    DatasetCatalog.register(name, lambda: load_coco_json(json_file, image_root, name, dataset_name_in_dict=dataset_name_in_dict))
+    DatasetCatalog.register(name, lambda: load_coco_json(json_file, image_root, edge_file, name, dataset_name_in_dict=dataset_name_in_dict))
 
     # 2. Optionally, add metadata about this dataset,
     # since they might be useful in evaluation, visualization or logging

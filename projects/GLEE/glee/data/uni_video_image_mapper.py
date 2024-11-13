@@ -190,8 +190,8 @@ class UnivideoimageDatasetMapper:
             return self.video_call(dataset_dict)
         else:
             return self.image_call(dataset_dict)
+
     def image_call(self, dataset_dict):
-        
         dataset_dict = copy.deepcopy(dataset_dict)  # it will be modified by code below
         image = utils.read_image(dataset_dict["file_name"], format=self.image_format)
         utils.check_image_size(dataset_dict, image)
@@ -200,8 +200,8 @@ class UnivideoimageDatasetMapper:
             assert len(mask_anno_json['annotations']) == len(dataset_dict['annotations'])
             for mask_anno, per_dict in zip(mask_anno_json['annotations'], dataset_dict['annotations']):
                 per_dict['segmentation'] = mask_anno.get("segmentation", None)
+
         if 'expressions' in dataset_dict:
-            
             for anno in dataset_dict["annotations"]:
                 if not self.mask_on:
                     anno.pop("segmentation", None)
@@ -270,6 +270,13 @@ class UnivideoimageDatasetMapper:
                     for obj in dataset_dict.pop("annotations")
                     if obj.get("iscrowd", 0) == 0
                 ]
+
+                if 'edge_path' in dataset_dict and dataset_dict['edge_path']:
+                    edge = utils.load_mask(dataset_dict['edge_path'], image.shape)
+                    # edges = utils.transform_instance_annotations({'edges':edge}, transforms, image_shape)
+                    edge = transforms.apply_segmentation(edge)
+                    dataset_dict["edge"] = torch.as_tensor(edge.copy())
+
                 instances = utils.annotations_to_instances(annos, image_shape, mask_format="bitmask")
                 dataset_dict["instances"],_mask = utils.filter_empty_instances(instances, return_mask=True)
 

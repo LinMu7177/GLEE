@@ -373,15 +373,11 @@ def register_all_openimage(root):
         )
 
 
-# _PREDEFINED_SPLITS_OBJECTS365V2 = {
-#      "objects365_v2_train": ("Objects365V2/images/", "Objects365V2/annotations/zhiyuan_objv2_train_new.json"),
-#      "objects365_v2_masktrain": ("Objects365V2/images/", "Objects365V2/annotations/objects365_v2_train_with_mask.json"),
-#     "objects365_v2_val": ("Objects365V2/images/", "Objects365V2/annotations/zhiyuan_objv2_val_new.json"),
-# }
+
 
 _PREDEFINED_SPLITS_OBJECTS365V2 = {
-    "objects365_v2_train": ("/root/autodl-tmp/data/Objects365v2/val/images", "/root/autodl-tmp/data/Objects365v2/val/zhiyuan_objv2_val.json"),
-    "objects365_v2_val": ("/root/autodl-tmp/data/Objects365v2/val/images", "/root/autodl-tmp/data/Objects365v2/val/zhiyuan_objv2_val.json"),
+    "objects365_v2_train": ("/data/shared/Objects365v2/val/images", "/data/shared/Objects365v2/val/zhiyuan_objv2_val.json"),
+    "objects365_v2_val": ("/data/shared/Objects365v2/val/images", "/data/shared/Objects365v2/val/zhiyuan_objv2_val.json"),
 }
 
 
@@ -394,6 +390,22 @@ def register_all_obj365v2(root):
             os.path.join(root, json_file) if "://" not in json_file else json_file,
             os.path.join(root, image_root),
             dataset_name_in_dict="obj365v2"
+        )
+
+_PREDEFINED_SPLITS_OBJECTS365V2_WITH_EDGES = {
+    "objects365_v2_train_with_edges": ("/data/shared/Objects365v2/val/images", "/data/shared/Objects365v2/val/zhiyuan_objv2_val.json", "/data/shared/DINO_SAM2_Data/objects365/val"),
+    "objects365_v2_val_with_edges": ("/data/shared/Objects365v2/val/images", "/data/shared/Objects365v2/val/zhiyuan_objv2_val.json", "/data/shared/DINO_SAM2_Data/objects365/val"),
+}
+
+def register_all_obj365v2_with_edges(root):
+    for key, (image_root, json_file, edge_file) in _PREDEFINED_SPLITS_OBJECTS365V2_WITH_EDGES.items():
+        register_coco_instances(
+            key,
+            _get_builtin_metadata(),
+            os.path.join(root, json_file) if "://" not in json_file else json_file,
+            os.path.join(root, image_root),
+            os.path.join(root, edge_file),
+            dataset_name_in_dict="obj365v2_with_edges"
         )
 
 
@@ -728,4 +740,7 @@ if __name__.endswith(".builtin"):
 
     # VOS/SOT
     register_all_sot(_root)
+
+    # edges
+    register_all_obj365v2_with_edges(_root)
   

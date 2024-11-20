@@ -182,8 +182,6 @@ class Trainer(DefaultTrainer):
         return optimizer
 
 
-
-
 def load_config_dict_to_opt(opt, config_dict):
     """
     Load the key, value pairs from config_dict to opt, overriding existing values in opt

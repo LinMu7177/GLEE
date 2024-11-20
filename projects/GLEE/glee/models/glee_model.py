@@ -8,6 +8,7 @@
 
 import torch
 import torch.nn.functional as F
+import torch.distributed as dist
 from torch import nn
 from detectron2.modeling import  build_backbone
 from .pixel_decoder.maskdino_encoder import build_pixel_decoder
@@ -22,6 +23,12 @@ from .vos_utils import masks_to_boxes, FeatureFuser
 import numpy as np 
 import math
 
+def is_dist_avail_and_initialized():
+    if not dist.is_available():
+        return False
+    if not dist.is_initialized():
+        return False
+    return True
 
 def rand_sample(x, max_len):
     if x.shape[1] <= max_len:
@@ -77,6 +84,8 @@ class GLEE_Model(nn.Module):
             for p in self.text_encoder.parameters():
                 p.requires_grad = False
             self.lang_projection = nn.Parameter(torch.rand(cfg.MODEL.LANGUAGE_BACKBONE.LANG_DIM, cfg.MODEL.DIM_PROJ))
+            self.caption_projection = nn.Parameter(torch.rand(cfg.MODEL.LANGUAGE_BACKBONE.LANG_DIM, 1024))
+            self.logit_scale = nn.Parameter(torch.ones([]) * np.log(1 / 0.07))
         elif cfg.MODEL.TEXT.ARCH == 'clip_unfrozen':
             self.tokenizer = CLIPTokenizer.from_pretrained('projects/GLEE/clip_vit_base_patch32') 
             self.tokenizer.add_special_tokens({'cls_token': self.tokenizer.eos_token})
@@ -124,7 +133,7 @@ class GLEE_Model(nn.Module):
     def device(self):
         return self.pixel_mean.device
     
-    def forward(self, images, prompts, task, edge=None, targets=None, batch_name_list=None, is_train = True, visual_prompt_type='scribble'):
+    def forward(self, images, prompts, task, edge=None, targets=None, batch_name_list=None, captions=None, is_train = True, visual_prompt_type='scribble'):
         extra =  {}
         # dist_loss = None
         early_semantic = None 
@@ -148,7 +157,21 @@ class GLEE_Model(nn.Module):
                     gather_all_classtoken = token_x.flatten(0,1)[tokenized['attention_mask'].flatten(0,1)>0]
                     gather_all_classtoken = gather_all_classtoken.unsqueeze(0).repeat(len(images),1,1) #[bs,L,C]
                     gather_all_classtoken_mask = torch.ones_like(gather_all_classtoken[:,:,0])>0  #[bs,L]
-                    early_semantic = {"hidden":gather_all_classtoken.float(),"masks":gather_all_classtoken_mask} 
+                    early_semantic = {"hidden":gather_all_classtoken.float(),"masks":gather_all_classtoken_mask}
+                if captions:
+                    tokenized = self.tokenizer.batch_encode_plus(captions,
+                             max_length=self.cfg.MODEL.LANGUAGE_BACKBONE.MAX_QUERY_LEN, # 256
+                             padding='max_length' if self.cfg.MODEL.LANGUAGE_BACKBONE.PAD_MAX else "longest", # max_length
+                             return_special_tokens_mask=True,
+                             return_tensors='pt',
+                             truncation=True).to("cuda")
+                    texts = (tokenized['input_ids'], tokenized['attention_mask'])
+                    token_x = self.text_encoder(*texts)['last_hidden_state']
+                    token_x = token_x @ self.caption_projection
+                    lang_feat_pool = agg_lang_feat(token_x, tokenized['attention_mask'],
+                                                   pool_type="average")  # (bs, 768)
+                    extra['captions_embeddings'] = lang_feat_pool
+
         elif self.text_encode_type in ['EVA02_L_CLIP_frozen', 'EVA02_L_CLIP_unfreeze', 'EVA02_L_CLIP_teacher','EVA01_G_CLIP_frozen'  , 'EVA01_G_CLIP_unfreeze'  ,'EVA01_G_CLIP_teacher']:
             if task not in ['grounding','rvos']:
                 assert batch_name_list
@@ -187,7 +210,7 @@ class GLEE_Model(nn.Module):
                     gather_all_classtoken = token_x.flatten(0,1)[tokenized['attention_mask'].flatten(0,1)>0]
                     gather_all_classtoken = gather_all_classtoken.unsqueeze(0).repeat(len(images),1,1) #[bs,L,C]
                     gather_all_classtoken_mask = torch.ones_like(gather_all_classtoken[:,:,0])>0  #[bs,L]
-                    early_semantic = {"hidden":gather_all_classtoken.float(),"masks":gather_all_classtoken_mask} 
+                    early_semantic = {"hidden":gather_all_classtoken.float(),"masks":gather_all_classtoken_mask}
 
 
 
@@ -222,14 +245,29 @@ class GLEE_Model(nn.Module):
         
         if edge != None:
             if isinstance(images,torch.Tensor):
-                features = self.backbone(images, edge)
+                features, features_attnpool = self.backbone(images, edge)
             else:
-                features = self.backbone(images.tensor, edge.tensor)
+                features, features_attnpool = self.backbone(images.tensor, edge.tensor)
         else:
             if isinstance(images,torch.Tensor):
                 features = self.backbone(images)
             else:
                 features = self.backbone(images.tensor)
+
+        if captions:
+            image_features = features_attnpool
+            text_features = extra['captions_embeddings']
+            text_features = text_features / text_features.norm(dim=-1, keepdim=True)
+
+            sim_i2t = torch.matmul(image_features, text_features.T)
+            sim_t2i = torch.matmul(image_features, text_features.T).T
+            sim_i2t = self.logit_scale.exp() * sim_i2t
+            sim_t2i = self.logit_scale.exp() * sim_t2i
+            rank = dist.get_rank() if is_dist_avail_and_initialized() else 0
+            bs = len(images)
+            tmp_targets = torch.linspace(rank * bs, rank * bs + bs - 1, bs, dtype=int).to(images.device)
+            contrastive_learning_loss = (F.cross_entropy(sim_i2t, tmp_targets, label_smoothing=0.1) + F.cross_entropy(sim_t2i, tmp_targets, label_smoothing=0.1)) / 2
+            # dist_loss += contrastive_learning_loss
 
         if 'spatial' in prompts:
             ## setp 1,2,3
@@ -365,11 +403,14 @@ class GLEE_Model(nn.Module):
             outputs = self.predictor(multi_scale_features, mask_features, extra=extra, task=task, masks=None, targets=targets)
             track_loss = self.get_tracking_contrastive_lossv3(outputs[0], targets, task)
 
-            return outputs, track_loss, dist_loss+params_zero_loss
+            return outputs, track_loss, dist_loss + params_zero_loss
         else:
             outputs = self.predictor(multi_scale_features, mask_features, extra=extra, task=task, masks=None, targets=targets)
             fake_track_loss = (outputs[0]['pred_track_embed']*0).sum()
-            return  outputs, fake_track_loss, dist_loss+params_zero_loss
+            if 'contrastive_learning_loss' in locals():
+                return outputs, fake_track_loss, dist_loss + params_zero_loss, contrastive_learning_loss
+            else:
+                return  outputs, fake_track_loss, dist_loss + params_zero_loss
  
 
     def video_visualP(self, images, prompts, task, targets=None, batch_name_list=None, is_train = True):

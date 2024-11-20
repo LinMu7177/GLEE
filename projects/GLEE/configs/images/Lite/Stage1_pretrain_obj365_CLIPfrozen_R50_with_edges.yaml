@@ -5,7 +5,7 @@ DATASETS:
   TRAIN: ("objects365_v2_train_with_edges",)
   TEST: ("objects365_v2_val_with_edges",)
 SOLVER:
-  IMS_PER_BATCH: 8
+  IMS_PER_BATCH: 4
   BASE_LR: 0.0001
   STEPS: (400000,  )
   MAX_ITER: 100000
@@ -20,5 +20,5 @@ DATALOADER:
   DATASET_BS: [2, 2]
   USE_RFS: [True, True]
   FILTER_EMPTY_ANNOTATIONS: True
-  NUM_WORKERS: 4
+  NUM_WORKERS: 0
 OUTPUT_DIR: ./exp/GLEE_Lite_CLIPfrozen_pretrain

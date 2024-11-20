@@ -107,6 +107,7 @@ class GLEE(nn.Module):
         self.dataset_name_dicts = {
             'coco':coco_class_name,
             'coco_clip':coco_class_name,
+            # 'coco_contrastive_learning': coco_class_name,
             'lvis': self.LVIS_class_names,
             'obj365': self.OBJ365_class_names ,
             'openimage': self.OPENIMAGE_class_names, 
@@ -200,6 +201,7 @@ class GLEE(nn.Module):
         weight_dict.update({"loss_bbox":box_weight,"loss_giou":giou_weight})
         weight_dict.update({"track_loss": 2.0})
         weight_dict.update({"dist_loss": 4.0})
+        weight_dict.update({"contrastive_learning_loss": 4.0})
         # two stage is the query selection scheme
         if cfg.MODEL.MaskDINO.TWO_STAGE:
             interm_weight_dict = {}
@@ -332,10 +334,13 @@ class GLEE(nn.Module):
         if self.training:
             images = self.preprocess_image(batched_inputs, task)
             if "edge" in batched_inputs[0].keys():
-                edge = [x["edge"].to(self.device).float().unsqueeze(0) for x in batched_inputs]
+                contrastive_learning_task = True
+                edge = [x["edge"].to(self.device).float() for x in batched_inputs]
                 edge = ImageList.from_tensors(edge, size_divisibility=self.size_divisibility)
             else:
+                contrastive_learning_task = False
                 edge = None
+
 
             if task in self.video_task_list:
                 gt_instances = [x["instances"] for x in batched_inputs]
@@ -359,6 +364,15 @@ class GLEE(nn.Module):
                 losses = self.criterion(outputs, targets, mask_dict, task)
                 losses.update({"track_loss":track_loss})
                 losses.update({"dist_loss":dist_loss})
+            elif contrastive_learning_task:
+                captions = [x["file_name"] for x in batched_inputs]
+                resize_images = [x["resize_image_torch"].to(self.device) for x in batched_inputs]
+                resize_images = ImageList.from_tensors(resize_images, size_divisibility=self.size_divisibility)
+                (outputs, mask_dict), track_loss, dist_loss, contrastive_learning_loss = self.glee(resize_images, prompt_list, task, edge, targets, batch_name_list, captions)
+                losses = self.criterion(outputs, targets, mask_dict, task)
+                losses.update({"track_loss": track_loss})
+                losses.update({"dist_loss": dist_loss})
+                losses.update({"contrastive_learning_loss": contrastive_learning_loss})
             else:
                 (outputs, mask_dict), track_loss, dist_loss  = self.glee(images, prompt_list, task, edge, targets, batch_name_list)
                 losses = self.criterion(outputs, targets, mask_dict, task)
@@ -549,7 +563,7 @@ class GLEE(nn.Module):
                         prompt_list["spatial"].append(padded_masks[valid_id]) # add the first frame gt mask as visual prompt
     
             return video_targets, prompt_list
-        
+
         h_pad, w_pad = images.tensor.shape[-2:]
         new_targets = []
 
@@ -616,6 +630,8 @@ class GLEE(nn.Module):
                 task = 'obj365'
                 if self.pseudo_video and self.training:
                     task = 'obj365_clip'
+            elif "_with_edges" in batched_inputs[0]['dataset_name']:
+                task = batched_inputs[0]['dataset_name'].replace("_with_edges","")
             else:
                 task = batched_inputs[0]['dataset_name'] # [ovis, ytvis19, ytvis21, uvo_video, bdd_det, bdd_inst]
                 if task == 'UVO_image':

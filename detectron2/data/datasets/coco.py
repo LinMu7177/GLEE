@@ -232,7 +232,8 @@ def load_coco_json(json_file, image_root, edges_file=None, dataset_name=None, ex
     if edges_file:
         for data in dataset_dicts:
             id = data["image_id"]
-            edge_path = os.path.join(edges_file, str(id) + '_edges.pkl')
+            edge_filename = f"{str(id).zfill(12)}_edges.pkl"
+            edge_path = os.path.join(edges_file, edge_filename)
             data["edge_path"] = edge_path
     return dataset_dicts
 

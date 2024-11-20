@@ -12,6 +12,7 @@ from .burst_video import (_get_burst_video_meta, register_burst_video, _get_burs
 from .tao import _get_tao_image_meta
 # from .flicker import register_flicker, _get_flicker_meta
 from detectron2.data.datasets.register_coco import register_coco_instances
+from detectron2.data.datasets.builtin_meta import _get_coco_instances_meta
 from .open_image import _get_builtin_metadata_openimage
 from .objects365_v2 import _get_builtin_metadata
 from .objects365 import _get_builtin_metadata_obj365v1
@@ -37,6 +38,23 @@ from .bdd100k import (
 )
 from .VisualGenome import register_vg_instances, _get_vg_meta
 from .omnilabel import register_omnilabel_instances, _get_omnilabel_meta
+
+# ==== Predefined splits for COCO datasets ===========
+_PREDEFINED_SPLITS_COCO_WITH_EDGES = {
+    "coco_2017_train_with_edges": ("/mnt/data6T/GLEE/datasets/coco/val2017", "/mnt/data6T/GLEE/datasets/coco/annotations/instances_val2017.json","/data/shared/DINO_SAM2_Data/coco/val2017"),
+    "coco_2017_val_with_edges": ("/mnt/data6T/GLEE/datasets/coco/val2017", "/mnt/data6T/GLEE/datasets/coco/annotations/instances_val2017.json","/data/shared/DINO_SAM2_Data/coco/val2017"),
+}
+
+def register_all_coco_edges(root):
+    for key, (image_root, json_file, edge_file) in _PREDEFINED_SPLITS_COCO_WITH_EDGES.items():
+        register_coco_instances(
+            key,
+            _get_coco_instances_meta(),
+            os.path.join(root, json_file) if "://" not in json_file else json_file,
+            os.path.join(root, image_root),
+            os.path.join(root, edge_file),
+            dataset_name_in_dict="coco_with_edges"
+        )
 
 # ==== Predefined splits for REFCOCO datasets ===========
 _PREDEFINED_SPLITS_REFCOCO = {
@@ -103,7 +121,6 @@ _PREDEFINED_SPLITS_GRIT20M = {
     "grit_5m": ("grit-20m/images/", "GRIT20M/grit_5m.json"),
 }
 
-
 def register_all_grit(root):
     for key, (image_root, json_file) in _PREDEFINED_SPLITS_GRIT20M.items():
         # Assume pre-defined datasets live in `./datasets`.
@@ -123,7 +140,6 @@ _PREDEFINED_SPLITS_OmniLabel = {
     "omnilabel_openimages": ("omnilabel/images", "omnilabel/omnilabel_openimages.json"),
     "omnilabel_all": ("omnilabel/images", "omnilabel/omnilabel_cocofmt.json"),
 }
-
 
 def register_all_omnilabel(root):
     for key, (image_root, json_file) in _PREDEFINED_SPLITS_OmniLabel.items():
@@ -145,7 +161,6 @@ _PREDEFINED_SPLITS_SA1B = {
     "sa1b_2m": ("SA1B_scaleup/images/", "SA1B_scaleup/sa1b_2m.json"),
 }
 
-
 def register_all_sa1b(root):
     for key, (image_root, json_file) in _PREDEFINED_SPLITS_SA1B.items():
         # Assume pre-defined datasets live in `./datasets`.
@@ -156,9 +171,6 @@ def register_all_sa1b(root):
             os.path.join(root, image_root),
             has_mask = False
         )
- 
-
-
 
 
 _PREDEFINED_SPLITS_burst_image = {
@@ -166,7 +178,6 @@ _PREDEFINED_SPLITS_burst_image = {
     "image_bur": ("TAO/frames/val/", "TAO/burst_annotations/TAO_val_lvisformat.json"),
 }
 
- 
 def register_all_BURST_image(root):
     for key, (image_root, json_file) in _PREDEFINED_SPLITS_burst_image.items():
         # Assume pre-defined datasets live in `./datasets`.
@@ -180,14 +191,11 @@ def register_all_BURST_image(root):
         )
 
 
-
-
 _PREDEFINED_SPLITS_TAO_image = {
     # TAO-image
     "image_tao": ("TAO/frames/", "TAO/annotations-1.2/TAO_val_withlabel_lvisformat.json"),
 }
 
- 
 def register_all_TAO_image(root):
     for key, (image_root, json_file) in _PREDEFINED_SPLITS_TAO_image.items():
         # Assume pre-defined datasets live in `./datasets`.
@@ -201,14 +209,11 @@ def register_all_TAO_image(root):
         )
 
 
-
-
 _PREDEFINED_SPLITS_LVVIS_image = {
     # ytvis-image
     "image_lv": ("lvvis/val/JPEGImages",
                        "lvvis/lvvis_cocofmt.json"),
 }
-
  
 def register_all_LVVIS_image(root):
     for key, (image_root, json_file) in _PREDEFINED_SPLITS_LVVIS_image.items():
@@ -227,7 +232,6 @@ _PREDEFINED_SPLITS_VIS_image = {
     "image_yt19": ("ytvis_2019/train/JPEGImages", "ytvis_2019/annotations/ytvis19_cocofmt.json"),
     "image_yt19_sub": ("ytvis_2019/train/JPEGImages", "subytvis/ytvis19_cocofmt_sub.json"),
 }
-
  
 def register_all_YTVIS19_image(root):
     for key, (image_root, json_file) in _PREDEFINED_SPLITS_VIS_image.items():
@@ -273,15 +277,11 @@ def register_all_OVIS_image(root):
         )
 
 
-
-
-
 _PREDEFINED_SPLITS_UVO_image = {
     # UVO-image
     "UVO_frame_train": ("UVO/uvo_videos_frames", "custom_annotations/UVO/annotations/FrameSet/UVO_frame_train_onecategory.json"),
     "UVO_frame_val": ("UVO/uvo_videos_frames", "custom_annotations/UVO/annotations/FrameSet/UVO_frame_val_onecategory.json"),
 }
-
 
 def register_all_UVO_image(root):
     for key, (image_root, json_file) in _PREDEFINED_SPLITS_UVO_image.items():
@@ -301,7 +301,6 @@ _PREDEFINED_SPLITS_UVO_dense_video = {
     "UVO_dense_video_val": ("UVO/uvo_videos_dense_frames_jpg", "UVO/annotations/VideoDenseSet/UVO_video_val_dense_objectlabel.json"),
 }
 
-
 def register_all_UVO_dense_video(root):
     for key, (image_root, json_file) in _PREDEFINED_SPLITS_UVO_dense_video.items():
         # Assume pre-defined datasets live in `./datasets`.
@@ -314,13 +313,11 @@ def register_all_UVO_dense_video(root):
         )
 
 
-
 _PREDEFINED_SPLITS_BURST_video = {
     # tao-video_without category  BURST benchmark
     "BURST_video_train": ("TAO/frames/train/", "TAO/burst_annotations/TAO_train_withlabel_ytvisformat.json"),
     "BURST_video_val": ("TAO/frames/val/", "TAO/burst_annotations/TAO_val_withlabel_ytvisformat.json"),
 }
-
 
 def register_all_BURST_video(root):
     for key, (image_root, json_file) in _PREDEFINED_SPLITS_BURST_video.items():
@@ -334,14 +331,11 @@ def register_all_BURST_video(root):
         )
 
 
-
-
 _PREDEFINED_SPLITS_TAO_video = {
     # tao-video_without category  BURST benchmark
     # "BURST_video_train": ("TAO/frames/train/", "TAO/burst_annotations/TAO_train_withlabel_ytvisformat.json"),
     "TAO_video_val": ("TAO/frames/", "TAO/TAO_annotations/validation_ytvisfmt.json"),
 }
-
 
 def register_all_TAO_video(root):
     for key, (image_root, json_file) in _PREDEFINED_SPLITS_TAO_video.items():
@@ -355,12 +349,10 @@ def register_all_TAO_video(root):
         )
 
 
-
 _PREDEFINED_SPLITS_OPEN_IMAGE = {
     "openimage_train": ("openimages/detection/", "open_image/openimages_v6_train_bbox_splitdir.json"),
     "openimage_val": ("openimages/detection/", "open_image/openimages_v6_val_bbox_splitdir.json"),
 }
-
 
 def register_all_openimage(root):
     for key, (image_root, json_file) in _PREDEFINED_SPLITS_OPEN_IMAGE.items():
@@ -373,14 +365,10 @@ def register_all_openimage(root):
         )
 
 
-
-
 _PREDEFINED_SPLITS_OBJECTS365V2 = {
     "objects365_v2_train": ("/data/shared/Objects365v2/val/images", "/data/shared/Objects365v2/val/zhiyuan_objv2_val.json"),
     "objects365_v2_val": ("/data/shared/Objects365v2/val/images", "/data/shared/Objects365v2/val/zhiyuan_objv2_val.json"),
 }
-
-
 
 def register_all_obj365v2(root):
     for key, (image_root, json_file) in _PREDEFINED_SPLITS_OBJECTS365V2.items():
@@ -743,4 +731,5 @@ if __name__.endswith(".builtin"):
 
     # edges
     register_all_obj365v2_with_edges(_root)
+    register_all_coco_edges(_root)
   

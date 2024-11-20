@@ -17,6 +17,9 @@ from detectron2.data import detection_utils as utils
 from detectron2.data import transforms as T
 from .augmentation_vis import build_augmentation
 from fvcore.transforms.transform import HFlipTransform
+
+from detectron2.data.datasets.alpha_processing import process_image_and_mask
+
 __all__ = ["UnivideoimageDatasetMapper"]
 
 
@@ -272,10 +275,12 @@ class UnivideoimageDatasetMapper:
                 ]
 
                 if 'edge_path' in dataset_dict and dataset_dict['edge_path']:
-                    edge = utils.load_mask(dataset_dict['edge_path'], image.shape)
-                    # edges = utils.transform_instance_annotations({'edges':edge}, transforms, image_shape)
+                    edge = utils.load_mask(dataset_dict['edge_path'], (transforms[1].h, transforms[1].w))
                     edge = transforms.apply_segmentation(edge)
-                    dataset_dict["edge"] = torch.as_tensor(edge.copy())
+
+                    resize_image_torch, resize_edge_torch = process_image_and_mask(image, edge)
+                    dataset_dict["resize_image_torch"] = resize_image_torch
+                    dataset_dict["edge"] = resize_edge_torch
 
                 instances = utils.annotations_to_instances(annos, image_shape, mask_format="bitmask")
                 dataset_dict["instances"],_mask = utils.filter_empty_instances(instances, return_mask=True)

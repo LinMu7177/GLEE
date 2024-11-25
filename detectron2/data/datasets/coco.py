@@ -6,6 +6,7 @@ import json
 import logging
 import numpy as np
 import os
+import random
 import shutil
 import pycocotools.mask as mask_util
 from fvcore.common.timer import Timer
@@ -158,6 +159,7 @@ def load_coco_json(json_file, image_root, edges_file=None, dataset_name=None, ex
         record["height"] = img_dict["height"]
         record["width"] = img_dict["width"]
         image_id = record["image_id"] = img_dict["id"]
+        record["caption"] = random.choice(img_dict["captions"])
 
         objs = []
         for anno in anno_dict_list:

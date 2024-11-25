@@ -511,8 +511,7 @@ class ResNet(Backbone):
             if "linear" in self._out_features:
                 outputs["linear"] = x
         if alpha is not None:
-            x = self.attnpool(x)
-            outputs_attnpool = x
+            outputs_attnpool = self.attnpool(x)
             return outputs, outputs_attnpool
         return outputs
 

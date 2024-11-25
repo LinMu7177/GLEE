@@ -41,8 +41,8 @@ from .omnilabel import register_omnilabel_instances, _get_omnilabel_meta
 
 # ==== Predefined splits for COCO datasets ===========
 _PREDEFINED_SPLITS_COCO_WITH_EDGES = {
-    "coco_2017_train_with_edges": ("/mnt/data6T/GLEE/datasets/coco/val2017", "/mnt/data6T/GLEE/datasets/coco/annotations/instances_val2017.json","/data/shared/DINO_SAM2_Data/coco/val2017"),
-    "coco_2017_val_with_edges": ("/mnt/data6T/GLEE/datasets/coco/val2017", "/mnt/data6T/GLEE/datasets/coco/annotations/instances_val2017.json","/data/shared/DINO_SAM2_Data/coco/val2017"),
+    "coco_2017_train_with_edges": ("/mnt/data6T/GLEE/datasets/coco/train2017", "/mnt/data6T/GLEE/datasets/coco/annotations/instances_with_captions_train2017.json","/data/shared/DINO_SAM2_Data/coco/train2017"),
+    "coco_2017_val_with_edges": ("/mnt/data6T/GLEE/datasets/coco/val2017", "/mnt/data6T/GLEE/datasets/coco/annotations/instances_with_captions_val2017.json","/data/shared/DINO_SAM2_Data/coco/val2017"),
 }
 
 def register_all_coco_edges(root):

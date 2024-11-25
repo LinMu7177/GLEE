@@ -201,7 +201,7 @@ class GLEE(nn.Module):
         weight_dict.update({"loss_bbox":box_weight,"loss_giou":giou_weight})
         weight_dict.update({"track_loss": 2.0})
         weight_dict.update({"dist_loss": 4.0})
-        weight_dict.update({"contrastive_learning_loss": 4.0})
+        weight_dict.update({"contrastive_learning_loss": 20.0})
         # two stage is the query selection scheme
         if cfg.MODEL.MaskDINO.TWO_STAGE:
             interm_weight_dict = {}
@@ -365,7 +365,7 @@ class GLEE(nn.Module):
                 losses.update({"track_loss":track_loss})
                 losses.update({"dist_loss":dist_loss})
             elif contrastive_learning_task:
-                captions = [x["file_name"] for x in batched_inputs]
+                captions = [x["caption"] for x in batched_inputs]
                 resize_images = [x["resize_image_torch"].to(self.device) for x in batched_inputs]
                 resize_images = ImageList.from_tensors(resize_images, size_divisibility=self.size_divisibility)
                 (outputs, mask_dict), track_loss, dist_loss, contrastive_learning_loss = self.glee(resize_images, prompt_list, task, edge, targets, batch_name_list, captions)

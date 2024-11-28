@@ -20,7 +20,7 @@ from detectron2.config import configurable
 from detectron2.layers import Conv2d
 from detectron2.utils.registry import Registry
 from detectron2.structures import BitMasks
-from timm.models.layers import trunc_normal_
+from timm.layers import trunc_normal_
 from .dino_decoder import TransformerDecoder, DeformableTransformerDecoderLayer
 from ...utils.utils import MLP, gen_encoder_output_proposals, inverse_sigmoid
 from ...utils import box_ops

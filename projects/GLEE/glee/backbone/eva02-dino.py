@@ -240,7 +240,7 @@ class Block(nn.Module):
             xattn=xattn,
         )
 
-        from timm.models.layers import DropPath
+        from timm.layers import DropPath
 
         self.drop_path = DropPath(drop_path) if drop_path > 0.0 else nn.Identity()
         self.norm2 = norm_layer(dim)

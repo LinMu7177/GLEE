@@ -260,7 +260,8 @@ class CommonMetricPrinter(EventWriter):
                     [
                         "{}: {:.4g}".format(k, v.median(self._window_size))
                         for k, v in storage.histories().items()
-                        if "loss" in k
+                        # if "loss" in k
+                        if k in {"total_loss", "loss_ce", "contrastive_learning_loss"}
                     ]
                 ),
                 time="time: {:.4f}  ".format(iter_time) if iter_time is not None else "",

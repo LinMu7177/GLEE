@@ -14,7 +14,7 @@ from detectron2.layers import CNNBlockBase, Conv2d, get_norm
 from detectron2.modeling.backbone.fpn import _assert_strides_are_log2_contiguous
 
 from detectron2.modeling.backbone import Backbone
-from timm.models.layers import DropPath, Mlp, trunc_normal_
+from timm.layers import DropPath, Mlp, trunc_normal_
 from detectron2.modeling import BACKBONE_REGISTRY, Backbone, ShapeSpec
 
 
@@ -252,7 +252,7 @@ class Block(nn.Module):
             xattn=xattn,
         )
 
-        from timm.models.layers import DropPath
+        from timm.layers import DropPath
 
         self.drop_path = DropPath(drop_path) if drop_path > 0.0 else nn.Identity()
         self.norm2 = norm_layer(dim)

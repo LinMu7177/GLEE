@@ -331,17 +331,16 @@ class GLEE(nn.Module):
         
         batch_name_list = None
 
+        if "edge" in batched_inputs[0].keys():
+            contrastive_learning_task = True
+            edge = [x["edge"].to(self.device).float() for x in batched_inputs]
+            edge = ImageList.from_tensors(edge, size_divisibility=self.size_divisibility)
+        else:
+            contrastive_learning_task = False
+            edge = None
+
         if self.training:
             images = self.preprocess_image(batched_inputs, task)
-            if "edge" in batched_inputs[0].keys():
-                contrastive_learning_task = True
-                edge = [x["edge"].to(self.device).float() for x in batched_inputs]
-                edge = ImageList.from_tensors(edge, size_divisibility=self.size_divisibility)
-            else:
-                contrastive_learning_task = False
-                edge = None
-
-
             if task in self.video_task_list:
                 gt_instances = [x["instances"] for x in batched_inputs]
             else:
@@ -415,7 +414,7 @@ class GLEE(nn.Module):
                 images = self.preprocess_image(batched_inputs, task)
                 batch_name_list = self.dataset_name_dicts[task]
 
-                (outputs,_),_,_ = self.glee(images, prompt_list, task, batch_name_list=batch_name_list, is_train=False)
+                (outputs,_),_,_ = self.glee(images, prompt_list, task, edge, batch_name_list=batch_name_list, is_train=False)
 
                 mask_cls_results = outputs["pred_logits"]
                 mask_pred_results = outputs["pred_masks"]

@@ -15,7 +15,7 @@ from detectron2.layers import CNNBlockBase, Conv2d, get_norm
 from detectron2.modeling.backbone.fpn import _assert_strides_are_log2_contiguous
 
 from fairscale.nn.checkpoint import checkpoint_wrapper
-from timm.models.layers import DropPath, Mlp, trunc_normal_
+from timm.layers import DropPath, Mlp, trunc_normal_
 
 # from detectron2.modeling.backbone import Backbone
 from detectron2.modeling import BACKBONE_REGISTRY, Backbone, ShapeSpec

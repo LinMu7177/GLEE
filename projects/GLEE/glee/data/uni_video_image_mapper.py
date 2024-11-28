@@ -197,6 +197,8 @@ class UnivideoimageDatasetMapper:
     def image_call(self, dataset_dict):
         dataset_dict = copy.deepcopy(dataset_dict)  # it will be modified by code below
         image = utils.read_image(dataset_dict["file_name"], format=self.image_format)
+        if image.shape[0] > 2000 or image.shape[1] > 2000:
+            print(image.shape)
         utils.check_image_size(dataset_dict, image)
         if dataset_dict.get('task') == 'sa1b': # read the sa1b mask annotation which saved with images rather in annotation json
             mask_anno_json = json.load(open(dataset_dict["file_name"][:-3]+'json','rb'))
@@ -241,7 +243,7 @@ class UnivideoimageDatasetMapper:
             if self.crop_gen is None:
                 image, transforms = T.apply_transform_gens(self.tfm_gens, image)
             else:
-                if np.random.rand() > 0.5:
+                if np.random.rand() > 0.5 and image.shape[0] < 2000 and image.shape[1] < 2000:
                     image, transforms = T.apply_transform_gens(self.tfm_gens, image)
                 else:
                     image, transforms = T.apply_transform_gens(

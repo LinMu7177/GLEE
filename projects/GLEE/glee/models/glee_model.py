@@ -17,7 +17,7 @@ import random
 from transformers import AutoTokenizer
 from collections import OrderedDict
 from ..modules.point_features import point_sample
-from timm.models.layers import trunc_normal_
+from timm.layers import trunc_normal_
 from transformers import CLIPTokenizer,CLIPTextModel
 from .vos_utils import masks_to_boxes, FeatureFuser
 import numpy as np 

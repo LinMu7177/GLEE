@@ -1666,3 +1666,391 @@ WARNING [11/28 16:35:38 fvcore.common.checkpoint]: The checkpoint state_dict con
 [11/28 17:18:27 d2.utils.events]:  eta: 12:28:22  iter: 1059  total_loss: 212.7  loss_ce: 2.987  contrastive_learning_loss: 91.48  time: 2.3947  data_time: 0.5797  lr: 0.0001  max_mem: 19222M
 [11/28 17:19:15 d2.utils.events]:  eta: 12:27:27  iter: 1079  total_loss: 212  loss_ce: 2.944  contrastive_learning_loss: 91.52  time: 2.3947  data_time: 0.6084  lr: 0.0001  max_mem: 19222M
 [11/28 17:20:04 d2.utils.events]:  eta: 12:26:44  iter: 1099  total_loss: 212.6  loss_ce: 2.92  contrastive_learning_loss: 91.5  time: 2.3954  data_time: 0.6281  lr: 0.0001  max_mem: 19222M
+[11/28 17:20:53 d2.utils.events]:  eta: 12:25:59  iter: 1119  total_loss: 212.7  loss_ce: 3.028  contrastive_learning_loss: 91.52  time: 2.3962  data_time: 0.6200  lr: 0.0001  max_mem: 19222M
+[11/28 17:21:42 d2.utils.events]:  eta: 12:25:05  iter: 1139  total_loss: 210.8  loss_ce: 2.917  contrastive_learning_loss: 91.53  time: 2.3967  data_time: 0.6350  lr: 0.0001  max_mem: 19222M
+[11/28 17:22:30 d2.utils.events]:  eta: 12:24:20  iter: 1159  total_loss: 211  loss_ce: 2.876  contrastive_learning_loss: 91.56  time: 2.3973  data_time: 0.6087  lr: 0.0001  max_mem: 19222M
+[11/28 17:23:17 d2.utils.events]:  eta: 12:22:49  iter: 1179  total_loss: 210.2  loss_ce: 2.84  contrastive_learning_loss: 91.52  time: 2.3964  data_time: 0.6033  lr: 0.0001  max_mem: 19222M
+[11/28 17:24:05 d2.utils.events]:  eta: 12:22:23  iter: 1199  total_loss: 209.8  loss_ce: 2.877  contrastive_learning_loss: 91.54  time: 2.3964  data_time: 0.6436  lr: 0.0001  max_mem: 19222M
+[11/28 17:24:52 d2.utils.events]:  eta: 12:21:50  iter: 1219  total_loss: 208.5  loss_ce: 2.787  contrastive_learning_loss: 91.53  time: 2.3956  data_time: 0.6030  lr: 0.0001  max_mem: 19222M
+[11/28 17:25:40 d2.utils.events]:  eta: 12:20:38  iter: 1239  total_loss: 209.2  loss_ce: 2.904  contrastive_learning_loss: 91.53  time: 2.3955  data_time: 0.6138  lr: 0.0001  max_mem: 19222M
+[11/28 17:26:28 d2.utils.events]:  eta: 12:19:51  iter: 1259  total_loss: 209.3  loss_ce: 2.838  contrastive_learning_loss: 91.57  time: 2.3954  data_time: 0.5952  lr: 0.0001  max_mem: 19222M
+[11/28 17:27:14 d2.utils.events]:  eta: 12:18:42  iter: 1279  total_loss: 210.4  loss_ce: 2.839  contrastive_learning_loss: 91.58  time: 2.3939  data_time: 0.5886  lr: 0.0001  max_mem: 19222M
+[11/28 17:28:01 d2.utils.events]:  eta: 12:17:23  iter: 1299  total_loss: 208.6  loss_ce: 2.806  contrastive_learning_loss: 91.55  time: 2.3934  data_time: 0.5863  lr: 0.0001  max_mem: 19222M
+[11/28 17:28:48 d2.utils.events]:  eta: 12:17:07  iter: 1319  total_loss: 206.8  loss_ce: 2.728  contrastive_learning_loss: 91.56  time: 2.3926  data_time: 0.6187  lr: 0.0001  max_mem: 19222M
+[11/28 17:29:34 d2.utils.events]:  eta: 12:15:58  iter: 1339  total_loss: 207.6  loss_ce: 2.774  contrastive_learning_loss: 91.58  time: 2.3913  data_time: 0.6082  lr: 0.0001  max_mem: 19222M
+[11/28 17:30:21 d2.utils.events]:  eta: 12:14:00  iter: 1359  total_loss: 210.1  loss_ce: 2.846  contrastive_learning_loss: 91.57  time: 2.3907  data_time: 0.6160  lr: 0.0001  max_mem: 19222M
+[11/28 17:31:07 d2.utils.events]:  eta: 12:13:01  iter: 1379  total_loss: 208.1  loss_ce: 2.816  contrastive_learning_loss: 91.57  time: 2.3891  data_time: 0.5820  lr: 0.0001  max_mem: 19222M
+[11/28 17:31:55 d2.utils.events]:  eta: 12:12:45  iter: 1399  total_loss: 206.9  loss_ce: 2.709  contrastive_learning_loss: 91.57  time: 2.3890  data_time: 0.6262  lr: 0.0001  max_mem: 19222M
+[11/28 17:32:43 d2.utils.events]:  eta: 12:11:44  iter: 1419  total_loss: 212.2  loss_ce: 2.825  contrastive_learning_loss: 91.59  time: 2.3893  data_time: 0.6044  lr: 0.0001  max_mem: 19222M
+[11/28 17:33:30 d2.utils.events]:  eta: 12:11:10  iter: 1439  total_loss: 212.2  loss_ce: 2.87  contrastive_learning_loss: 91.57  time: 2.3887  data_time: 0.5822  lr: 0.0001  max_mem: 19222M
+[11/28 17:34:17 d2.utils.events]:  eta: 12:10:23  iter: 1459  total_loss: 214.4  loss_ce: 3.283  contrastive_learning_loss: 91.62  time: 2.3879  data_time: 0.6082  lr: 0.0001  max_mem: 19222M
+[11/28 17:35:03 d2.utils.events]:  eta: 12:08:51  iter: 1479  total_loss: 213.5  loss_ce: 2.867  contrastive_learning_loss: 91.6  time: 2.3870  data_time: 0.5951  lr: 0.0001  max_mem: 19222M
+[11/28 17:35:50 d2.utils.events]:  eta: 12:08:04  iter: 1499  total_loss: 210.6  loss_ce: 2.799  contrastive_learning_loss: 91.64  time: 2.3865  data_time: 0.6197  lr: 0.0001  max_mem: 19222M
+[11/28 17:36:37 d2.utils.events]:  eta: 12:06:45  iter: 1519  total_loss: 206.8  loss_ce: 2.644  contrastive_learning_loss: 91.6  time: 2.3859  data_time: 0.6076  lr: 0.0001  max_mem: 19222M
+[11/28 17:37:24 d2.utils.events]:  eta: 12:05:58  iter: 1539  total_loss: 204.3  loss_ce: 2.566  contrastive_learning_loss: 91.62  time: 2.3855  data_time: 0.6057  lr: 0.0001  max_mem: 19222M
+[11/28 17:38:11 d2.utils.events]:  eta: 12:05:01  iter: 1559  total_loss: 203.4  loss_ce: 2.603  contrastive_learning_loss: 91.66  time: 2.3848  data_time: 0.5913  lr: 0.0001  max_mem: 19222M
+[11/28 17:38:57 d2.utils.events]:  eta: 12:03:51  iter: 1579  total_loss: 204.4  loss_ce: 2.529  contrastive_learning_loss: 91.63  time: 2.3840  data_time: 0.6039  lr: 0.0001  max_mem: 19222M
+[11/28 17:39:45 d2.utils.events]:  eta: 12:03:04  iter: 1599  total_loss: 202.9  loss_ce: 2.509  contrastive_learning_loss: 91.64  time: 2.3840  data_time: 0.6162  lr: 0.0001  max_mem: 19222M
+[11/28 17:40:32 d2.utils.events]:  eta: 12:01:35  iter: 1619  total_loss: 203.9  loss_ce: 2.614  contrastive_learning_loss: 91.64  time: 2.3835  data_time: 0.5823  lr: 0.0001  max_mem: 19222M
+[11/28 17:41:17 d2.utils.events]:  eta: 12:00:42  iter: 1639  total_loss: 201.5  loss_ce: 2.545  contrastive_learning_loss: 91.66  time: 2.3820  data_time: 0.5687  lr: 0.0001  max_mem: 19222M
+[11/28 17:42:04 d2.utils.events]:  eta: 11:59:36  iter: 1659  total_loss: 201.8  loss_ce: 2.49  contrastive_learning_loss: 91.64  time: 2.3814  data_time: 0.6132  lr: 0.0001  max_mem: 19222M
+[11/28 17:42:50 d2.utils.events]:  eta: 11:58:13  iter: 1679  total_loss: 208.3  loss_ce: 2.73  contrastive_learning_loss: 91.62  time: 2.3804  data_time: 0.5460  lr: 0.0001  max_mem: 19222M
+[11/28 17:43:35 d2.utils.events]:  eta: 11:56:28  iter: 1699  total_loss: 204.5  loss_ce: 2.591  contrastive_learning_loss: 91.62  time: 2.3788  data_time: 0.5543  lr: 0.0001  max_mem: 19222M
+[11/28 17:44:21 d2.utils.events]:  eta: 11:55:22  iter: 1719  total_loss: 202.1  loss_ce: 2.515  contrastive_learning_loss: 91.66  time: 2.3779  data_time: 0.5928  lr: 0.0001  max_mem: 19222M
+[11/28 17:45:09 d2.utils.events]:  eta: 11:54:06  iter: 1739  total_loss: 203.6  loss_ce: 2.624  contrastive_learning_loss: 91.62  time: 2.3779  data_time: 0.6307  lr: 0.0001  max_mem: 19222M
+[11/28 17:45:57 d2.utils.events]:  eta: 11:53:11  iter: 1759  total_loss: 201.6  loss_ce: 2.479  contrastive_learning_loss: 91.64  time: 2.3782  data_time: 0.6506  lr: 0.0001  max_mem: 19222M
+[11/28 17:46:43 d2.utils.events]:  eta: 11:51:18  iter: 1779  total_loss: 201.5  loss_ce: 2.48  contrastive_learning_loss: 91.65  time: 2.3777  data_time: 0.6039  lr: 0.0001  max_mem: 19222M
+[11/28 17:47:30 d2.utils.events]:  eta: 11:50:14  iter: 1799  total_loss: 201.4  loss_ce: 2.526  contrastive_learning_loss: 91.62  time: 2.3771  data_time: 0.5952  lr: 0.0001  max_mem: 19222M
+[11/28 17:48:17 d2.utils.events]:  eta: 11:49:31  iter: 1819  total_loss: 200.5  loss_ce: 2.434  contrastive_learning_loss: 91.63  time: 2.3768  data_time: 0.5976  lr: 0.0001  max_mem: 19222M
+[11/28 17:49:04 d2.utils.events]:  eta: 11:48:24  iter: 1839  total_loss: 200.7  loss_ce: 2.435  contrastive_learning_loss: 91.7  time: 2.3765  data_time: 0.6026  lr: 0.0001  max_mem: 19222M
+[11/28 17:49:52 d2.utils.events]:  eta: 11:47:47  iter: 1859  total_loss: 199.2  loss_ce: 2.369  contrastive_learning_loss: 91.63  time: 2.3764  data_time: 0.5980  lr: 0.0001  max_mem: 19222M
+[11/28 17:50:41 d2.utils.events]:  eta: 11:47:12  iter: 1879  total_loss: 200.3  loss_ce: 2.406  contrastive_learning_loss: 91.65  time: 2.3774  data_time: 0.6020  lr: 0.0001  max_mem: 19222M
+[11/28 17:51:28 d2.utils.events]:  eta: 11:46:08  iter: 1899  total_loss: 198.7  loss_ce: 2.352  contrastive_learning_loss: 91.66  time: 2.3772  data_time: 0.5719  lr: 0.0001  max_mem: 19222M
+[11/28 17:52:17 d2.utils.events]:  eta: 11:45:20  iter: 1919  total_loss: 200.5  loss_ce: 2.41  contrastive_learning_loss: 91.68  time: 2.3778  data_time: 0.5986  lr: 0.0001  max_mem: 19222M
+[11/28 17:53:04 d2.utils.events]:  eta: 11:44:02  iter: 1939  total_loss: 199  loss_ce: 2.396  contrastive_learning_loss: 91.7  time: 2.3773  data_time: 0.5655  lr: 0.0001  max_mem: 19222M
+[11/28 17:53:51 d2.utils.events]:  eta: 11:42:48  iter: 1959  total_loss: 198.9  loss_ce: 2.456  contrastive_learning_loss: 91.67  time: 2.3770  data_time: 0.5997  lr: 0.0001  max_mem: 19222M
+[11/28 17:54:38 d2.utils.events]:  eta: 11:42:20  iter: 1979  total_loss: 199.9  loss_ce: 2.464  contrastive_learning_loss: 91.67  time: 2.3770  data_time: 0.6092  lr: 0.0001  max_mem: 19222M
+[11/28 17:55:27 d2.projects.glee.data.refcoco_dataset_mapper]: Full TransformGens used in training: [ResizeShortestEdge(short_edge_length=(800, 800), max_size=1333, sample_style='choice')], crop: None
+[11/28 17:55:28 d2.data.datasets.coco]: Loaded 5000 images in COCO format from /mnt/data6T/GLEE/datasets/coco/annotations/instances_with_captions_val2017.json
+[11/28 17:55:28 d2.data.common]: Serializing 5000 elements to byte tensors and concatenating them all ...
+[11/28 17:55:28 d2.data.common]: Serialized dataset takes 20.11 MiB
+WARNING [11/28 17:55:29 d2.evaluation.coco_evaluation]: COCO Evaluator instantiated using config, this is deprecated behavior. Please pass in explicit arguments instead.
+[11/28 17:55:29 d2.evaluation.evaluator]: Start inference on 1250 batches
+[11/28 17:55:33] xformers WARNING: WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.5.1+cu121 with CUDA 1201 (you have 2.1.0+cu121)
+    Python  3.9.20 (you have 3.9.2)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+[11/28 17:55:33] xformers WARNING: WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.5.1+cu121 with CUDA 1201 (you have 2.1.0+cu121)
+    Python  3.9.20 (you have 3.9.2)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+[11/28 17:55:33] xformers WARNING: WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.5.1+cu121 with CUDA 1201 (you have 2.1.0+cu121)
+    Python  3.9.20 (you have 3.9.2)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+[11/28 17:55:34] xformers WARNING: WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.5.1+cu121 with CUDA 1201 (you have 2.1.0+cu121)
+    Python  3.9.20 (you have 3.9.2)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+[11/28 17:55:37] xformers WARNING: WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.5.1+cu121 with CUDA 1201 (you have 2.1.0+cu121)
+    Python  3.9.20 (you have 3.9.2)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+[11/28 17:55:37] xformers WARNING: WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.5.1+cu121 with CUDA 1201 (you have 2.1.0+cu121)
+    Python  3.9.20 (you have 3.9.2)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+[11/28 17:55:37] xformers WARNING: WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.5.1+cu121 with CUDA 1201 (you have 2.1.0+cu121)
+    Python  3.9.20 (you have 3.9.2)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+[11/28 17:55:38] xformers WARNING: WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.5.1+cu121 with CUDA 1201 (you have 2.1.0+cu121)
+    Python  3.9.20 (you have 3.9.2)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+[11/28 17:55:41] xformers WARNING: WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.5.1+cu121 with CUDA 1201 (you have 2.1.0+cu121)
+    Python  3.9.20 (you have 3.9.2)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+[11/28 17:55:41] xformers WARNING: WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.5.1+cu121 with CUDA 1201 (you have 2.1.0+cu121)
+    Python  3.9.20 (you have 3.9.2)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+[11/28 17:55:42] xformers WARNING: WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.5.1+cu121 with CUDA 1201 (you have 2.1.0+cu121)
+    Python  3.9.20 (you have 3.9.2)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+[11/28 17:55:42] xformers WARNING: WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.5.1+cu121 with CUDA 1201 (you have 2.1.0+cu121)
+    Python  3.9.20 (you have 3.9.2)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+[11/28 17:55:45] xformers WARNING: WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.5.1+cu121 with CUDA 1201 (you have 2.1.0+cu121)
+    Python  3.9.20 (you have 3.9.2)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+[11/28 17:55:45] xformers WARNING: WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.5.1+cu121 with CUDA 1201 (you have 2.1.0+cu121)
+    Python  3.9.20 (you have 3.9.2)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+[11/28 17:55:46] xformers WARNING: WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.5.1+cu121 with CUDA 1201 (you have 2.1.0+cu121)
+    Python  3.9.20 (you have 3.9.2)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+[11/28 17:55:46] xformers WARNING: WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.5.1+cu121 with CUDA 1201 (you have 2.1.0+cu121)
+    Python  3.9.20 (you have 3.9.2)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+[11/28 17:55:50 d2.evaluation.evaluator]: Inference done 11/1250. Dataloading: 0.0014 s/iter. Inference: 0.1317 s/iter. Eval: 0.1568 s/iter. Total: 0.2899 s/iter. ETA=0:05:59
+[11/28 17:55:56 d2.evaluation.evaluator]: Inference done 28/1250. Dataloading: 0.0018 s/iter. Inference: 0.1582 s/iter. Eval: 0.1445 s/iter. Total: 0.3046 s/iter. ETA=0:06:12
+[11/28 17:56:01 d2.evaluation.evaluator]: Inference done 47/1250. Dataloading: 0.0020 s/iter. Inference: 0.1463 s/iter. Eval: 0.1417 s/iter. Total: 0.2901 s/iter. ETA=0:05:49
+[11/28 17:56:06 d2.evaluation.evaluator]: Inference done 67/1250. Dataloading: 0.0020 s/iter. Inference: 0.1386 s/iter. Eval: 0.1372 s/iter. Total: 0.2779 s/iter. ETA=0:05:28
+[11/28 17:56:11 d2.evaluation.evaluator]: Inference done 86/1250. Dataloading: 0.0020 s/iter. Inference: 0.1329 s/iter. Eval: 0.1408 s/iter. Total: 0.2759 s/iter. ETA=0:05:21
+[11/28 17:56:16 d2.evaluation.evaluator]: Inference done 104/1250. Dataloading: 0.0020 s/iter. Inference: 0.1307 s/iter. Eval: 0.1449 s/iter. Total: 0.2778 s/iter. ETA=0:05:18
+[11/28 17:56:21 d2.evaluation.evaluator]: Inference done 123/1250. Dataloading: 0.0021 s/iter. Inference: 0.1275 s/iter. Eval: 0.1460 s/iter. Total: 0.2756 s/iter. ETA=0:05:10
+[11/28 17:56:26 d2.evaluation.evaluator]: Inference done 143/1250. Dataloading: 0.0021 s/iter. Inference: 0.1260 s/iter. Eval: 0.1457 s/iter. Total: 0.2738 s/iter. ETA=0:05:03
+[11/28 17:56:31 d2.evaluation.evaluator]: Inference done 162/1250. Dataloading: 0.0021 s/iter. Inference: 0.1253 s/iter. Eval: 0.1455 s/iter. Total: 0.2730 s/iter. ETA=0:04:57
+[11/28 17:56:37 d2.evaluation.evaluator]: Inference done 182/1250. Dataloading: 0.0021 s/iter. Inference: 0.1236 s/iter. Eval: 0.1459 s/iter. Total: 0.2716 s/iter. ETA=0:04:50
+[11/28 17:56:42 d2.evaluation.evaluator]: Inference done 202/1250. Dataloading: 0.0021 s/iter. Inference: 0.1228 s/iter. Eval: 0.1447 s/iter. Total: 0.2697 s/iter. ETA=0:04:42
+[11/28 17:56:47 d2.evaluation.evaluator]: Inference done 221/1250. Dataloading: 0.0020 s/iter. Inference: 0.1227 s/iter. Eval: 0.1446 s/iter. Total: 0.2695 s/iter. ETA=0:04:37
+[11/28 17:56:52 d2.evaluation.evaluator]: Inference done 241/1250. Dataloading: 0.0020 s/iter. Inference: 0.1217 s/iter. Eval: 0.1444 s/iter. Total: 0.2681 s/iter. ETA=0:04:30
+[11/28 17:56:57 d2.evaluation.evaluator]: Inference done 261/1250. Dataloading: 0.0021 s/iter. Inference: 0.1210 s/iter. Eval: 0.1441 s/iter. Total: 0.2672 s/iter. ETA=0:04:24
+[11/28 17:57:02 d2.evaluation.evaluator]: Inference done 280/1250. Dataloading: 0.0021 s/iter. Inference: 0.1211 s/iter. Eval: 0.1438 s/iter. Total: 0.2670 s/iter. ETA=0:04:19
+[11/28 17:57:07 d2.evaluation.evaluator]: Inference done 300/1250. Dataloading: 0.0021 s/iter. Inference: 0.1209 s/iter. Eval: 0.1435 s/iter. Total: 0.2666 s/iter. ETA=0:04:13
+[11/28 17:57:12 d2.evaluation.evaluator]: Inference done 320/1250. Dataloading: 0.0021 s/iter. Inference: 0.1203 s/iter. Eval: 0.1435 s/iter. Total: 0.2660 s/iter. ETA=0:04:07
+[11/28 17:57:18 d2.evaluation.evaluator]: Inference done 340/1250. Dataloading: 0.0021 s/iter. Inference: 0.1202 s/iter. Eval: 0.1433 s/iter. Total: 0.2657 s/iter. ETA=0:04:01
+[11/28 17:57:23 d2.evaluation.evaluator]: Inference done 360/1250. Dataloading: 0.0021 s/iter. Inference: 0.1201 s/iter. Eval: 0.1428 s/iter. Total: 0.2651 s/iter. ETA=0:03:55
+[11/28 17:57:28 d2.evaluation.evaluator]: Inference done 379/1250. Dataloading: 0.0021 s/iter. Inference: 0.1202 s/iter. Eval: 0.1428 s/iter. Total: 0.2651 s/iter. ETA=0:03:50
+[11/28 17:57:33 d2.evaluation.evaluator]: Inference done 399/1250. Dataloading: 0.0021 s/iter. Inference: 0.1200 s/iter. Eval: 0.1424 s/iter. Total: 0.2645 s/iter. ETA=0:03:45
+[11/28 17:57:38 d2.evaluation.evaluator]: Inference done 417/1250. Dataloading: 0.0021 s/iter. Inference: 0.1208 s/iter. Eval: 0.1425 s/iter. Total: 0.2654 s/iter. ETA=0:03:41
+[11/28 17:57:43 d2.evaluation.evaluator]: Inference done 437/1250. Dataloading: 0.0020 s/iter. Inference: 0.1204 s/iter. Eval: 0.1423 s/iter. Total: 0.2648 s/iter. ETA=0:03:35
+[11/28 17:57:48 d2.evaluation.evaluator]: Inference done 457/1250. Dataloading: 0.0020 s/iter. Inference: 0.1202 s/iter. Eval: 0.1422 s/iter. Total: 0.2646 s/iter. ETA=0:03:29
+[11/28 17:57:53 d2.evaluation.evaluator]: Inference done 478/1250. Dataloading: 0.0020 s/iter. Inference: 0.1199 s/iter. Eval: 0.1419 s/iter. Total: 0.2640 s/iter. ETA=0:03:23
+[11/28 17:57:58 d2.evaluation.evaluator]: Inference done 497/1250. Dataloading: 0.0020 s/iter. Inference: 0.1198 s/iter. Eval: 0.1421 s/iter. Total: 0.2640 s/iter. ETA=0:03:18
+[11/28 17:58:04 d2.evaluation.evaluator]: Inference done 517/1250. Dataloading: 0.0020 s/iter. Inference: 0.1196 s/iter. Eval: 0.1421 s/iter. Total: 0.2638 s/iter. ETA=0:03:13
+[11/28 17:58:09 d2.evaluation.evaluator]: Inference done 537/1250. Dataloading: 0.0020 s/iter. Inference: 0.1194 s/iter. Eval: 0.1422 s/iter. Total: 0.2637 s/iter. ETA=0:03:08
+[11/28 17:58:14 d2.evaluation.evaluator]: Inference done 556/1250. Dataloading: 0.0020 s/iter. Inference: 0.1193 s/iter. Eval: 0.1424 s/iter. Total: 0.2639 s/iter. ETA=0:03:03
+[11/28 17:58:19 d2.evaluation.evaluator]: Inference done 576/1250. Dataloading: 0.0021 s/iter. Inference: 0.1193 s/iter. Eval: 0.1424 s/iter. Total: 0.2638 s/iter. ETA=0:02:57
+[11/28 17:58:24 d2.evaluation.evaluator]: Inference done 595/1250. Dataloading: 0.0021 s/iter. Inference: 0.1193 s/iter. Eval: 0.1425 s/iter. Total: 0.2640 s/iter. ETA=0:02:52
+[11/28 17:58:29 d2.evaluation.evaluator]: Inference done 615/1250. Dataloading: 0.0021 s/iter. Inference: 0.1193 s/iter. Eval: 0.1424 s/iter. Total: 0.2638 s/iter. ETA=0:02:47
+[11/28 17:58:35 d2.evaluation.evaluator]: Inference done 634/1250. Dataloading: 0.0021 s/iter. Inference: 0.1192 s/iter. Eval: 0.1425 s/iter. Total: 0.2638 s/iter. ETA=0:02:42
+[11/28 17:58:40 d2.evaluation.evaluator]: Inference done 653/1250. Dataloading: 0.0021 s/iter. Inference: 0.1190 s/iter. Eval: 0.1428 s/iter. Total: 0.2640 s/iter. ETA=0:02:37
+[11/28 17:58:45 d2.evaluation.evaluator]: Inference done 673/1250. Dataloading: 0.0021 s/iter. Inference: 0.1189 s/iter. Eval: 0.1429 s/iter. Total: 0.2639 s/iter. ETA=0:02:32
+[11/28 17:58:50 d2.evaluation.evaluator]: Inference done 692/1250. Dataloading: 0.0021 s/iter. Inference: 0.1187 s/iter. Eval: 0.1430 s/iter. Total: 0.2639 s/iter. ETA=0:02:27
+[11/28 17:58:55 d2.evaluation.evaluator]: Inference done 711/1250. Dataloading: 0.0021 s/iter. Inference: 0.1187 s/iter. Eval: 0.1433 s/iter. Total: 0.2641 s/iter. ETA=0:02:22
+[11/28 17:59:00 d2.evaluation.evaluator]: Inference done 731/1250. Dataloading: 0.0021 s/iter. Inference: 0.1185 s/iter. Eval: 0.1434 s/iter. Total: 0.2641 s/iter. ETA=0:02:17
+[11/28 17:59:05 d2.evaluation.evaluator]: Inference done 751/1250. Dataloading: 0.0021 s/iter. Inference: 0.1184 s/iter. Eval: 0.1433 s/iter. Total: 0.2639 s/iter. ETA=0:02:11
+[11/28 17:59:10 d2.evaluation.evaluator]: Inference done 770/1250. Dataloading: 0.0021 s/iter. Inference: 0.1184 s/iter. Eval: 0.1433 s/iter. Total: 0.2639 s/iter. ETA=0:02:06
+[11/28 17:59:16 d2.evaluation.evaluator]: Inference done 789/1250. Dataloading: 0.0021 s/iter. Inference: 0.1184 s/iter. Eval: 0.1434 s/iter. Total: 0.2640 s/iter. ETA=0:02:01
+[11/28 17:59:21 d2.evaluation.evaluator]: Inference done 809/1250. Dataloading: 0.0021 s/iter. Inference: 0.1182 s/iter. Eval: 0.1433 s/iter. Total: 0.2637 s/iter. ETA=0:01:56
+[11/28 17:59:26 d2.evaluation.evaluator]: Inference done 829/1250. Dataloading: 0.0021 s/iter. Inference: 0.1183 s/iter. Eval: 0.1431 s/iter. Total: 0.2635 s/iter. ETA=0:01:50
+[11/28 17:59:31 d2.evaluation.evaluator]: Inference done 848/1250. Dataloading: 0.0021 s/iter. Inference: 0.1183 s/iter. Eval: 0.1431 s/iter. Total: 0.2635 s/iter. ETA=0:01:45
+[11/28 17:59:36 d2.evaluation.evaluator]: Inference done 869/1250. Dataloading: 0.0021 s/iter. Inference: 0.1182 s/iter. Eval: 0.1429 s/iter. Total: 0.2632 s/iter. ETA=0:01:40
+[11/28 17:59:41 d2.evaluation.evaluator]: Inference done 887/1250. Dataloading: 0.0021 s/iter. Inference: 0.1186 s/iter. Eval: 0.1429 s/iter. Total: 0.2636 s/iter. ETA=0:01:35
+[11/28 17:59:46 d2.evaluation.evaluator]: Inference done 907/1250. Dataloading: 0.0020 s/iter. Inference: 0.1184 s/iter. Eval: 0.1428 s/iter. Total: 0.2633 s/iter. ETA=0:01:30
+[11/28 17:59:51 d2.evaluation.evaluator]: Inference done 927/1250. Dataloading: 0.0020 s/iter. Inference: 0.1183 s/iter. Eval: 0.1428 s/iter. Total: 0.2632 s/iter. ETA=0:01:25
+[11/28 17:59:56 d2.evaluation.evaluator]: Inference done 947/1250. Dataloading: 0.0020 s/iter. Inference: 0.1182 s/iter. Eval: 0.1428 s/iter. Total: 0.2631 s/iter. ETA=0:01:19
+[11/28 18:00:01 d2.evaluation.evaluator]: Inference done 966/1250. Dataloading: 0.0020 s/iter. Inference: 0.1181 s/iter. Eval: 0.1429 s/iter. Total: 0.2631 s/iter. ETA=0:01:14
+[11/28 18:00:07 d2.evaluation.evaluator]: Inference done 986/1250. Dataloading: 0.0020 s/iter. Inference: 0.1181 s/iter. Eval: 0.1428 s/iter. Total: 0.2630 s/iter. ETA=0:01:09
+[11/28 18:00:12 d2.evaluation.evaluator]: Inference done 1006/1250. Dataloading: 0.0020 s/iter. Inference: 0.1181 s/iter. Eval: 0.1428 s/iter. Total: 0.2630 s/iter. ETA=0:01:04
+[11/28 18:00:17 d2.evaluation.evaluator]: Inference done 1026/1250. Dataloading: 0.0020 s/iter. Inference: 0.1180 s/iter. Eval: 0.1428 s/iter. Total: 0.2630 s/iter. ETA=0:00:58
+[11/28 18:00:22 d2.evaluation.evaluator]: Inference done 1045/1250. Dataloading: 0.0020 s/iter. Inference: 0.1180 s/iter. Eval: 0.1429 s/iter. Total: 0.2630 s/iter. ETA=0:00:53
+[11/28 18:00:27 d2.evaluation.evaluator]: Inference done 1066/1250. Dataloading: 0.0021 s/iter. Inference: 0.1179 s/iter. Eval: 0.1427 s/iter. Total: 0.2627 s/iter. ETA=0:00:48
+[11/28 18:00:32 d2.evaluation.evaluator]: Inference done 1086/1250. Dataloading: 0.0021 s/iter. Inference: 0.1178 s/iter. Eval: 0.1427 s/iter. Total: 0.2626 s/iter. ETA=0:00:43
+[11/28 18:00:37 d2.evaluation.evaluator]: Inference done 1105/1250. Dataloading: 0.0021 s/iter. Inference: 0.1179 s/iter. Eval: 0.1426 s/iter. Total: 0.2626 s/iter. ETA=0:00:38
+[11/28 18:00:42 d2.evaluation.evaluator]: Inference done 1123/1250. Dataloading: 0.0020 s/iter. Inference: 0.1178 s/iter. Eval: 0.1429 s/iter. Total: 0.2629 s/iter. ETA=0:00:33
+[11/28 18:00:48 d2.evaluation.evaluator]: Inference done 1142/1250. Dataloading: 0.0020 s/iter. Inference: 0.1179 s/iter. Eval: 0.1429 s/iter. Total: 0.2629 s/iter. ETA=0:00:28
+[11/28 18:00:53 d2.evaluation.evaluator]: Inference done 1162/1250. Dataloading: 0.0020 s/iter. Inference: 0.1178 s/iter. Eval: 0.1430 s/iter. Total: 0.2629 s/iter. ETA=0:00:23
+[11/28 18:00:58 d2.evaluation.evaluator]: Inference done 1181/1250. Dataloading: 0.0020 s/iter. Inference: 0.1178 s/iter. Eval: 0.1430 s/iter. Total: 0.2629 s/iter. ETA=0:00:18
+[11/28 18:01:03 d2.evaluation.evaluator]: Inference done 1201/1250. Dataloading: 0.0021 s/iter. Inference: 0.1178 s/iter. Eval: 0.1429 s/iter. Total: 0.2628 s/iter. ETA=0:00:12
+[11/28 18:01:08 d2.evaluation.evaluator]: Inference done 1221/1250. Dataloading: 0.0021 s/iter. Inference: 0.1177 s/iter. Eval: 0.1429 s/iter. Total: 0.2628 s/iter. ETA=0:00:07
+[11/28 18:01:13 d2.evaluation.evaluator]: Inference done 1240/1250. Dataloading: 0.0021 s/iter. Inference: 0.1177 s/iter. Eval: 0.1429 s/iter. Total: 0.2628 s/iter. ETA=0:00:02
+[11/28 18:01:36 d2.evaluation.evaluator]: Total inference time: 0:05:47.314376 (0.278967 s / iter per device, on 4 devices)
+[11/28 18:01:36 d2.evaluation.evaluator]: Total inference pure compute time: 0:02:26 (0.117715 s / iter per device, on 4 devices)
+[11/28 18:02:03 d2.evaluation.coco_evaluation]: Preparing results for COCO format ...
+[11/28 18:02:03 d2.evaluation.coco_evaluation]: Saving results to ./exp/GLEE_Lite_CLIPfrozen_pretrain/inference/coco_instances_results.json
+[11/28 18:02:10 d2.evaluation.coco_evaluation]: Evaluating predictions with unofficial COCO API...
+Loading and preparing results...
+DONE (t=0.51s)
+creating index...
+index created!
+[11/28 18:02:10 d2.evaluation.fast_eval_api]: Evaluate annotation type *bbox*
+[11/28 18:02:22 d2.evaluation.fast_eval_api]: COCOeval_opt.evaluate() finished in 11.77 seconds.
+[11/28 18:02:22 d2.evaluation.fast_eval_api]: Accumulating evaluation results...
+[11/28 18:02:24 d2.evaluation.fast_eval_api]: COCOeval_opt.accumulate() finished in 1.99 seconds.
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.001
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.003
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.001
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.002
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.008
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.012
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.002
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.012
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.019
+[11/28 18:02:24 d2.evaluation.coco_evaluation]: Evaluation results for bbox: 
+|  AP   |  AP50  |  AP75  |  APs  |  APm  |  APl  |
+|:-----:|:------:|:------:|:-----:|:-----:|:-----:|
+| 0.057 | 0.279  | 0.006  | 0.022 | 0.075 | 0.073 |
+[11/28 18:02:24 d2.evaluation.coco_evaluation]: Per-category bbox AP: 
+| category      | AP    | category     | AP    | category       | AP    |
+|:--------------|:------|:-------------|:------|:---------------|:------|
+| person        | 0.126 | bicycle      | 0.052 | car            | 0.152 |
+| motorcycle    | 0.007 | airplane     | 0.066 | bus            | 0.103 |
+| train         | 0.076 | truck        | 0.006 | boat           | 0.007 |
+| traffic light | 0.002 | fire hydrant | 0.025 | stop sign      | 0.061 |
+| parking meter | 0.000 | bench        | 0.019 | bird           | 0.008 |
+| cat           | 0.053 | dog          | 0.007 | horse          | 0.091 |
+| sheep         | 0.018 | cow          | 0.002 | elephant       | 0.354 |
+| bear          | 0.013 | zebra        | 0.656 | giraffe        | 0.723 |
+| backpack      | 0.000 | umbrella     | 0.008 | handbag        | 0.001 |
+| tie           | 0.000 | suitcase     | 0.003 | frisbee        | 0.000 |
+| skis          | 0.012 | snowboard    | 0.000 | sports ball    | 0.006 |
+| kite          | 0.128 | baseball bat | 0.000 | baseball glove | 0.000 |
+| skateboard    | 0.005 | surfboard    | 0.017 | tennis racket  | 0.000 |
+| bottle        | 0.003 | wine glass   | 0.000 | cup            | 0.017 |
+| fork          | 0.000 | knife        | 0.000 | spoon          | 0.000 |
+| bowl          | 0.026 | banana       | 0.063 | apple          | 0.000 |
+| sandwich      | 0.000 | orange       | 0.050 | broccoli       | 0.241 |
+| carrot        | 0.016 | hot dog      | 0.008 | pizza          | 0.171 |
+| donut         | 0.008 | cake         | 0.012 | chair          | 0.020 |
+| couch         | 0.015 | potted plant | 0.017 | bed            | 0.163 |
+| dining table  | 0.148 | toilet       | 0.239 | tv             | 0.062 |
+| laptop        | 0.003 | mouse        | 0.000 | remote         | 0.000 |
+| keyboard      | 0.000 | cell phone   | 0.149 | microwave      | 0.000 |
+| oven          | 0.000 | toaster      | 0.000 | sink           | 0.105 |
+| refrigerator  | 0.006 | book         | 0.005 | clock          | 0.008 |
+| vase          | 0.103 | scissors     | 0.046 | teddy bear     | 0.014 |
+| hair drier    | 0.000 | toothbrush   | 0.000 |                |       |
+Loading and preparing results...
+DONE (t=9.37s)
+creating index...
+index created!
+[11/28 18:02:45 d2.evaluation.fast_eval_api]: Evaluate annotation type *segm*
+[11/28 18:03:05 d2.evaluation.fast_eval_api]: COCOeval_opt.evaluate() finished in 20.17 seconds.
+[11/28 18:03:06 d2.evaluation.fast_eval_api]: Accumulating evaluation results...
+[11/28 18:03:08 d2.evaluation.fast_eval_api]: COCOeval_opt.accumulate() finished in 1.85 seconds.
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.001
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.002
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.004
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.006
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.007
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.012
+[11/28 18:03:09 d2.evaluation.coco_evaluation]: Evaluation results for segm: 
+|  AP   |  AP50  |  AP75  |  APs  |  APm  |  APl  |
+|:-----:|:------:|:------:|:-----:|:-----:|:-----:|
+| 0.059 | 0.208  | 0.025  | 0.000 | 0.005 | 0.111 |
+[11/28 18:03:09 d2.evaluation.coco_evaluation]: Per-category segm AP: 
+| category      | AP    | category     | AP    | category       | AP    |
+|:--------------|:------|:-------------|:------|:---------------|:------|
+| person        | 0.012 | bicycle      | 0.003 | car            | 0.001 |
+| motorcycle    | 0.002 | airplane     | 0.018 | bus            | 0.775 |
+| train         | 1.275 | truck        | 0.027 | boat           | 0.006 |
+| traffic light | 0.000 | fire hydrant | 0.000 | stop sign      | 0.245 |
+| parking meter | 0.000 | bench        | 0.007 | bird           | 0.000 |
+| cat           | 0.075 | dog          | 0.010 | horse          | 0.033 |
+| sheep         | 0.001 | cow          | 0.000 | elephant       | 0.116 |
+| bear          | 0.019 | zebra        | 0.021 | giraffe        | 0.001 |
+| backpack      | 0.000 | umbrella     | 0.001 | handbag        | 0.000 |
+| tie           | 0.000 | suitcase     | 0.001 | frisbee        | 0.000 |
+| skis          | 0.000 | snowboard    | 0.000 | sports ball    | 0.000 |
+| kite          | 0.000 | baseball bat | 0.000 | baseball glove | 0.000 |
+| skateboard    | 0.000 | surfboard    | 0.000 | tennis racket  | 0.000 |
+| bottle        | 0.000 | wine glass   | 0.000 | cup            | 0.000 |
+| fork          | 0.000 | knife        | 0.000 | spoon          | 0.000 |
+| bowl          | 0.015 | banana       | 0.004 | apple          | 0.001 |
+| sandwich      | 0.028 | orange       | 0.000 | broccoli       | 0.099 |
+| carrot        | 0.008 | hot dog      | 0.000 | pizza          | 0.217 |
+| donut         | 0.000 | cake         | 0.001 | chair          | 0.001 |
+| couch         | 0.005 | potted plant | 0.000 | bed            | 0.366 |
+| dining table  | 0.520 | toilet       | 0.004 | tv             | 0.003 |
+| laptop        | 0.003 | mouse        | 0.000 | remote         | 0.000 |
+| keyboard      | 0.802 | cell phone   | 0.000 | microwave      | 0.000 |
+| oven          | 0.000 | toaster      | 0.000 | sink           | 0.000 |
+| refrigerator  | 0.022 | book         | 0.000 | clock          | 0.000 |
+| vase          | 0.001 | scissors     | 0.000 | teddy bear     | 0.000 |
+| hair drier    | 0.000 | toothbrush   | 0.000 |                |       |
+[11/28 18:03:10 d2.engine.defaults]: Evaluation results for coco_2017_val_with_edges in csv format:
+[11/28 18:03:10 d2.evaluation.testing]: copypaste: Task: bbox
+[11/28 18:03:10 d2.evaluation.testing]: copypaste: AP,AP50,AP75,APs,APm,APl
+[11/28 18:03:10 d2.evaluation.testing]: copypaste: 0.0566,0.2790,0.0055,0.0220,0.0748,0.0727
+[11/28 18:03:10 d2.evaluation.testing]: copypaste: Task: segm
+[11/28 18:03:10 d2.evaluation.testing]: copypaste: AP,AP50,AP75,APs,APm,APl
+[11/28 18:03:10 d2.evaluation.testing]: copypaste: 0.0594,0.2078,0.0245,0.0001,0.0050,0.1110
+[11/28 18:03:10 d2.utils.events]:  eta: 11:41:29  iter: 1999  total_loss: 199  loss_ce: 2.369  contrastive_learning_loss: 91.64  time: 2.3777  data_time: 0.6122  lr: 0.0001  max_mem: 19222M
+[11/28 18:03:58 d2.utils.events]:  eta: 11:40:33  iter: 2019  total_loss: 199.6  loss_ce: 2.379  contrastive_learning_loss: 91.67  time: 2.3777  data_time: 0.6251  lr: 0.0001  max_mem: 19222M
+[11/28 18:04:44 d2.utils.events]:  eta: 11:39:41  iter: 2039  total_loss: 199.8  loss_ce: 2.426  contrastive_learning_loss: 91.62  time: 2.3770  data_time: 0.5994  lr: 0.0001  max_mem: 19222M
+[11/28 18:05:30 d2.utils.events]:  eta: 11:38:45  iter: 2059  total_loss: 199.3  loss_ce: 2.371  contrastive_learning_loss: 91.65  time: 2.3760  data_time: 0.5714  lr: 0.0001  max_mem: 19222M
+[11/28 18:06:17 d2.utils.events]:  eta: 11:37:52  iter: 2079  total_loss: 197.8  loss_ce: 2.314  contrastive_learning_loss: 91.65  time: 2.3758  data_time: 0.6010  lr: 0.0001  max_mem: 19222M
+[11/28 18:07:04 d2.utils.events]:  eta: 11:36:57  iter: 2099  total_loss: 198.4  loss_ce: 2.41  contrastive_learning_loss: 91.64  time: 2.3758  data_time: 0.6321  lr: 0.0001  max_mem: 19222M
+[11/28 18:07:52 d2.utils.events]:  eta: 11:35:28  iter: 2119  total_loss: 198.7  loss_ce: 2.411  contrastive_learning_loss: 91.61  time: 2.3757  data_time: 0.6206  lr: 0.0001  max_mem: 19222M
+[11/28 18:08:40 d2.utils.events]:  eta: 11:34:26  iter: 2139  total_loss: 197.6  loss_ce: 2.307  contrastive_learning_loss: 91.62  time: 2.3758  data_time: 0.5985  lr: 0.0001  max_mem: 19222M
+[11/28 18:09:26 d2.utils.events]:  eta: 11:33:29  iter: 2159  total_loss: 199  loss_ce: 2.363  contrastive_learning_loss: 91.65  time: 2.3754  data_time: 0.6179  lr: 0.0001  max_mem: 19222M
+[11/28 18:10:13 d2.utils.events]:  eta: 11:32:42  iter: 2179  total_loss: 199.8  loss_ce: 2.358  contrastive_learning_loss: 91.66  time: 2.3752  data_time: 0.6176  lr: 0.0001  max_mem: 19222M
+[11/28 18:11:00 d2.utils.events]:  eta: 11:31:25  iter: 2199  total_loss: 199.4  loss_ce: 2.324  contrastive_learning_loss: 91.63  time: 2.3747  data_time: 0.5860  lr: 0.0001  max_mem: 19222M
+[11/28 18:11:49 d2.utils.events]:  eta: 11:30:39  iter: 2219  total_loss: 198.4  loss_ce: 2.355  contrastive_learning_loss: 91.65  time: 2.3753  data_time: 0.6099  lr: 0.0001  max_mem: 19222M
+[11/28 18:12:36 d2.utils.events]:  eta: 11:29:56  iter: 2239  total_loss: 197.4  loss_ce: 2.325  contrastive_learning_loss: 91.64  time: 2.3752  data_time: 0.6177  lr: 0.0001  max_mem: 19222M
+[11/28 18:13:23 d2.utils.events]:  eta: 11:29:01  iter: 2259  total_loss: 197.1  loss_ce: 2.342  contrastive_learning_loss: 91.63  time: 2.3749  data_time: 0.6084  lr: 0.0001  max_mem: 19222M
+[11/28 18:14:11 d2.utils.events]:  eta: 11:28:50  iter: 2279  total_loss: 198.9  loss_ce: 2.313  contrastive_learning_loss: 91.64  time: 2.3749  data_time: 0.6380  lr: 0.0001  max_mem: 19222M
+[11/28 18:14:57 d2.utils.events]:  eta: 11:27:51  iter: 2299  total_loss: 197.4  loss_ce: 2.286  contrastive_learning_loss: 91.62  time: 2.3743  data_time: 0.5442  lr: 0.0001  max_mem: 19222M
+[11/28 18:15:44 d2.utils.events]:  eta: 11:27:04  iter: 2319  total_loss: 197.1  loss_ce: 2.329  contrastive_learning_loss: 91.65  time: 2.3739  data_time: 0.5994  lr: 0.0001  max_mem: 19222M
+[11/28 18:16:32 d2.utils.events]:  eta: 11:26:53  iter: 2339  total_loss: 198.3  loss_ce: 2.361  contrastive_learning_loss: 91.61  time: 2.3741  data_time: 0.6396  lr: 0.0001  max_mem: 19222M
+[11/28 18:17:21 d2.utils.events]:  eta: 11:26:46  iter: 2359  total_loss: 196.9  loss_ce: 2.279  contrastive_learning_loss: 91.63  time: 2.3750  data_time: 0.6221  lr: 0.0001  max_mem: 19222M
+[11/28 18:18:08 d2.utils.events]:  eta: 11:26:09  iter: 2379  total_loss: 198.1  loss_ce: 2.389  contrastive_learning_loss: 91.63  time: 2.3745  data_time: 0.5674  lr: 0.0001  max_mem: 19222M
+[11/28 18:18:54 d2.utils.events]:  eta: 11:25:13  iter: 2399  total_loss: 199.3  loss_ce: 2.436  contrastive_learning_loss: 91.62  time: 2.3741  data_time: 0.5728  lr: 0.0001  max_mem: 19222M
+[11/28 18:19:41 d2.utils.events]:  eta: 11:24:23  iter: 2419  total_loss: 197.5  loss_ce: 2.303  contrastive_learning_loss: 91.59  time: 2.3738  data_time: 0.6128  lr: 0.0001  max_mem: 19222M
+[11/28 18:20:32 d2.utils.events]:  eta: 11:23:55  iter: 2439  total_loss: 196.5  loss_ce: 2.31  contrastive_learning_loss: 91.58  time: 2.3753  data_time: 0.5959  lr: 0.0001  max_mem: 19222M
+[11/28 18:21:23 d2.utils.events]:  eta: 11:23:31  iter: 2459  total_loss: 196  loss_ce: 2.286  contrastive_learning_loss: 91.65  time: 2.3768  data_time: 0.6393  lr: 0.0001  max_mem: 19222M
+[11/28 18:22:10 d2.utils.events]:  eta: 11:22:40  iter: 2479  total_loss: 196.5  loss_ce: 2.24  contrastive_learning_loss: 91.61  time: 2.3764  data_time: 0.6201  lr: 0.0001  max_mem: 19222M
+[11/28 18:22:56 d2.utils.events]:  eta: 11:21:50  iter: 2499  total_loss: 197  loss_ce: 2.332  contrastive_learning_loss: 91.61  time: 2.3759  data_time: 0.6015  lr: 0.0001  max_mem: 19222M
+[11/28 18:23:43 d2.utils.events]:  eta: 11:21:00  iter: 2519  total_loss: 197.4  loss_ce: 2.294  contrastive_learning_loss: 91.59  time: 2.3753  data_time: 0.5756  lr: 0.0001  max_mem: 19222M
+[11/28 18:24:30 d2.utils.events]:  eta: 11:20:23  iter: 2539  total_loss: 196.4  loss_ce: 2.292  contrastive_learning_loss: 91.59  time: 2.3751  data_time: 0.6253  lr: 0.0001  max_mem: 19222M
+[11/28 18:25:16 d2.utils.events]:  eta: 11:19:26  iter: 2559  total_loss: 195.6  loss_ce: 2.323  contrastive_learning_loss: 91.54  time: 2.3748  data_time: 0.5908  lr: 0.0001  max_mem: 19826M
+[11/28 18:26:03 d2.utils.events]:  eta: 11:18:39  iter: 2579  total_loss: 195.5  loss_ce: 2.315  contrastive_learning_loss: 91.61  time: 2.3744  data_time: 0.5932  lr: 0.0001  max_mem: 19826M
+[11/28 18:26:49 d2.utils.events]:  eta: 11:17:35  iter: 2599  total_loss: 195.5  loss_ce: 2.249  contrastive_learning_loss: 91.58  time: 2.3740  data_time: 0.6058  lr: 0.0001  max_mem: 19826M
+[11/28 18:27:37 d2.utils.events]:  eta: 11:17:06  iter: 2619  total_loss: 195.5  loss_ce: 2.292  contrastive_learning_loss: 91.62  time: 2.3738  data_time: 0.5912  lr: 0.0001  max_mem: 19826M
+[11/28 18:28:24 d2.utils.events]:  eta: 11:16:42  iter: 2639  total_loss: 197.1  loss_ce: 2.327  contrastive_learning_loss: 91.61  time: 2.3739  data_time: 0.5750  lr: 0.0001  max_mem: 19826M
+[11/28 18:29:14 d2.utils.events]:  eta: 11:16:20  iter: 2659  total_loss: 194.2  loss_ce: 2.284  contrastive_learning_loss: 91.57  time: 2.3748  data_time: 0.5620  lr: 0.0001  max_mem: 19826M
+[11/28 18:30:05 d2.utils.events]:  eta: 11:16:16  iter: 2679  total_loss: 195.6  loss_ce: 2.26  contrastive_learning_loss: 91.57  time: 2.3759  data_time: 0.5880  lr: 0.0001  max_mem: 19826M
+[11/28 18:30:55 d2.utils.events]:  eta: 11:16:42  iter: 2699  total_loss: 196  loss_ce: 2.354  contrastive_learning_loss: 91.55  time: 2.3769  data_time: 0.5662  lr: 0.0001  max_mem: 19826M
+[11/28 18:31:41 d2.utils.events]:  eta: 11:15:55  iter: 2719  total_loss: 194.2  loss_ce: 2.251  contrastive_learning_loss: 91.57  time: 2.3763  data_time: 0.5754  lr: 0.0001  max_mem: 19826M
+[11/28 18:32:27 d2.utils.events]:  eta: 11:15:09  iter: 2739  total_loss: 195.2  loss_ce: 2.33  contrastive_learning_loss: 91.61  time: 2.3756  data_time: 0.5723  lr: 0.0001  max_mem: 19826M
+[11/28 18:33:13 d2.utils.events]:  eta: 11:13:38  iter: 2759  total_loss: 196.2  loss_ce: 2.283  contrastive_learning_loss: 91.61  time: 2.3750  data_time: 0.5821  lr: 0.0001  max_mem: 19826M
+[11/28 18:34:02 d2.utils.events]:  eta: 11:13:38  iter: 2779  total_loss: 195.6  loss_ce: 2.297  contrastive_learning_loss: 91.58  time: 2.3757  data_time: 0.6064  lr: 0.0001  max_mem: 19826M
+[11/28 18:34:50 d2.utils.events]:  eta: 11:13:04  iter: 2799  total_loss: 196.1  loss_ce: 2.294  contrastive_learning_loss: 91.56  time: 2.3758  data_time: 0.6070  lr: 0.0001  max_mem: 19826M
+[11/28 18:35:36 d2.utils.events]:  eta: 11:11:52  iter: 2819  total_loss: 195.5  loss_ce: 2.349  contrastive_learning_loss: 91.58  time: 2.3751  data_time: 0.5798  lr: 0.0001  max_mem: 19826M
+[11/28 18:36:22 d2.utils.events]:  eta: 11:10:35  iter: 2839  total_loss: 195.7  loss_ce: 2.269  contrastive_learning_loss: 91.59  time: 2.3745  data_time: 0.5922  lr: 0.0001  max_mem: 19826M
+[11/28 18:37:08 d2.utils.events]:  eta: 11:09:19  iter: 2859  total_loss: 194.3  loss_ce: 2.262  contrastive_learning_loss: 91.6  time: 2.3741  data_time: 0.5943  lr: 0.0001  max_mem: 19826M
+Traceback (most recent call last):
+  File "/home/wenwen/workspace/GLEE/projects/GLEE/train_net.py", line 256, in <module>
+    launch(
+  File "/home/wenwen/workspace/GLEE/detectron2/engine/launch.py", line 69, in launch
+    mp.spawn(
+  File "/home/wenwen/anaconda3/envs/glee/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 246, in spawn
+    return start_processes(fn, args, nprocs, join, daemon, start_method="spawn")
+  File "/home/wenwen/anaconda3/envs/glee/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 202, in start_processes
+    while not context.join():
+  File "/home/wenwen/anaconda3/envs/glee/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 145, in join
+    raise ProcessExitedException(
+torch.multiprocessing.spawn.ProcessExitedException: process 1 terminated with signal SIGKILL
+/home/wenwen/anaconda3/envs/glee/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 80 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

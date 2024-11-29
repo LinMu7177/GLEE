@@ -22,7 +22,6 @@ from transformers import CLIPTokenizer,CLIPTextModel
 from .vos_utils import masks_to_boxes, FeatureFuser
 import numpy as np 
 import math
-from ..utils.utils import concat_all_gather,  is_dist_avail_and_initialized
 
 def rand_sample(x, max_len):
     if x.shape[1] <= max_len:
@@ -253,18 +252,14 @@ class GLEE_Model(nn.Module):
             image_features = image_features / image_features.norm(dim=-1, keepdim=True)
             text_features = extra['captions_embeddings']
             text_features = text_features / text_features.norm(dim=-1, keepdim=True)
-            image_features = concat_all_gather(image_features)
-            text_features = concat_all_gather(text_features)
 
             sim_i2t = torch.matmul(image_features, text_features.T)
-            sim_t2i = torch.matmul(image_features, text_features.T).T
+            sim_t2i = sim_i2t.T
             sim_i2t = self.logit_scale.exp() * sim_i2t
             sim_t2i = self.logit_scale.exp() * sim_t2i
-            # rank = dist.get_rank() if is_dist_avail_and_initialized() else 0
-            bs = sim_i2t.size(0)
+            bs = image_features.size(0)
             tmp_targets = torch.linspace(0 * bs, 0 * bs + bs - 1, bs, dtype=int).to(sim_i2t.device)
             contrastive_learning_loss = (F.cross_entropy(sim_i2t, tmp_targets, label_smoothing=0.1) + F.cross_entropy(sim_t2i, tmp_targets, label_smoothing=0.1)) / 2
-            # dist_loss += contrastive_learning_loss
 
         if 'spatial' in prompts:
             ## setp 1,2,3
